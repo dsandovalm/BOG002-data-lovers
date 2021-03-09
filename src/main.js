@@ -15,6 +15,7 @@ for( const champion in dataSet) {
 let image = document.createElement('img');
 image.setAttribute('src', dataSet[champion].img)
 container.appendChild(image);
+alert(champion);
 }
 }
 
