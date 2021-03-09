@@ -10,8 +10,8 @@ export const filterData = (data,condition) => {
 //Data es un objeto
 //Condition es un arreglo de condiciones
 let filter = {};
-for( const property in object){
-console.log(`${property}: ${object[property]}`);
+for( const champion in data){
+console.log(`${champion});
 }
 
 }
