@@ -17,3 +17,5 @@ image.setAttribute('src', dataSet[champion].img)
 container.appendChild(image);
 }
 }
+
+viewCuad(data.data);
