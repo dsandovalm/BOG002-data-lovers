@@ -7,11 +7,10 @@ export const anotherExample = () => {
 };
 
 export const filterData = (data,condition) => {
-//Data es un objeto
-//Condition es un arreglo de condiciones
-let filter = {};
-for( const champion in data){
-console.log(`${champion});
-}
-
+  //Data es un objeto
+  //Condition es un arreglo de condiciones
+  let filter = {};
+  for( const champion in data){
+    console.log(`${champion}`);
+  }
 }
