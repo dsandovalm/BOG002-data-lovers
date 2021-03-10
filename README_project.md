@@ -1,6 +1,8 @@
 # Data Lovers
 
-## Usuario
+## Decisiones de diseño
+
+### Usuario
 
 Los principales usuarios de esta aplicación son jugadores nuevos de League of Legends que quieren aprender más sobre los campeones del juego.
 
