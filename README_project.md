@@ -1,6 +1,6 @@
 # Data Lovers
 
-[Web](https://dsandovalm.github.io/BOG002-data-lovers/)
+[Web](https://dsandovalm.github.io/BOG002-data-lovers/src/index.html)
 
 ## Decisiones de diseño
 
