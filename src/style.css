@@ -1,0 +1,72 @@
+/* - - - GENERAL - - - */
+
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 3px;
+    display:flex;
+    justify-content: space-between;
+}
+
+/* - - - CUAD - - - */
+
+.small-pic{
+    width: calc(100%/6);
+    height: auto;   
+}
+
+/* - - - CARDS - - - */
+
+.card{
+    width:50%;
+    padding:6px
+}
+.card div{
+    padding:0 6px
+}
+
+/*.card-pic {
+    width:100%;
+}
+
+/*@media (min-width: 480px) { 
+    .small-pic{
+        width: 48px;
+        height: 48px;   
+    }
+} */
+
+@media (orientation: landscape) { 
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .small-pic{
+        width: 48px;
+        height: 48px;   
+    }
+
+    .card{
+        width:25%;
+    }
+}
