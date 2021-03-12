@@ -60,9 +60,7 @@ function show(dataSet) {
 
     //Ahora a cada elemento creado (sea imagen o tarjeta) le ponemos un listener para el click
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
-    document
-      .getElementById(champion.toLowerCase())
-      .addEventListener("click", function () {
+    document.getElementById(champion.toLowerCase().addEventListener("click", function () {
         details(champion);
       });
   }
@@ -89,14 +87,99 @@ function details(championName) {
   //Recibir el campeon
   let champion = searchChamp(championName, data.data);
   //Tomar su información para llenar la pagina de detalles
-  document.getElementById("name").innerHTML = champion.id;
-  document.getElementById("icon").setAttribute("src", champion.img);
-  document.getElementById("desc").innerHTML = champion.title;
-  document.getElementById("main").style.display = "none";
-}
-function clickeado(nombre) {
-  console.log("click en " + nombre);
+  
+  //PARTE 1 Info básica
+  
+  document.getElementById("main").innerHTML = `
+      <h2 id="name">${champion.id}</h2>
+      <div class="info"> 
+        <img id="icon" src="${champion.img}">
+        <p id="desc">${champion.title}</p>
+      </div>
+      <div>
+        <div>
+          <p>Dificultad: ${champion.info.difficulty}</p>
+          <p>Roles: ${champion.tags[0]}</p>
+          <p>Tipo: ${champion.partype}</p>
+        </div>
+        <div>
+          <p>Ataque: ${champion.info.attack}</p>
+          <p>Defensa: ${champion.info.defense}</p>
+          <p>Magia: ${champion.info.magic}</p>
+        </div>
+      </div>
+      <img src="${champion.splash}">
+
+    <p class="">${champion.blurb}</p>
+    <div>
+      <h3>Stats</h3>
+      <p>hp: ${champion.stats.hp}</p>
+      <p>hpperlevel: ${champion.stats.hp}</p>
+      <p>mp</p>
+      <p>mpperlevel</p>
+      <p>movespeed</p>
+      <p>armor</p>
+      <p>armorperlevel</p>
+      <p>spellblock</p>
+      <p>spellblockperlevel</p>
+      <p>attackrange hpregen</p>
+      <p>hpregenperlevel</p>
+      <p>mpregen</p>
+      <p>mpregenperlevel</p>
+      <p>crit</p>
+      <p>critperlevel</p>
+      <p>attackdamage</p>
+      <p>attackdamageperlevel</p>
+      <p>attackspeedoffset</p>
+      <p>attackspeedperlevel</p>
+    </div>
+`
+  /*
+  <h2 id="name">Nombre</h2>
+      <div class="info"> 
+        <img id="icon" src="https://www.masterypoints.com/assets/img/lol/champion_icons/Aatrox.png" alt="">
+        <p id="desc">the Darkin Blade</p>
+      </div>
+      <div>
+        <div>
+          <p>Dificultad</p>
+          <p>Roles</p>
+          <p>Tipo</p>
+        </div>
+        <div>
+          <p>Ataque</p>
+          <p>Defensa</p>
+          <p>Magia</p>
+        </div>
+      </div>
+      <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
+
+    <p class="">descripción de campeón</p>
+    <div>
+      <h3>Stats</h3>
+      <p>hp</p>
+      <p>hpperlevel</p>
+      <p>mp</p>
+      <p>mpperlevel</p>
+      <p>movespeed</p>
+      <p>armor</p>
+      <p>armorperlevel</p>
+      <p>spellblock</p>
+      <p>spellblockperlevel</p>
+      <p>attackrange hpregen</p>
+      <p>hpregenperlevel</p>
+      <p>mpregen</p>
+      <p>mpregenperlevel</p>
+      <p>crit</p>
+      <p>critperlevel</p>
+      <p>attackdamage</p>
+      <p>attackdamageperlevel</p>
+      <p>attackspeedoffset</p>
+      <p>attackspeedperlevel</p>
+    </div>
+  */
 }
 
+//Run
+    
 show(data.data);
-
