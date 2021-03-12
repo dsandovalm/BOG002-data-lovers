@@ -19,3 +19,14 @@ export const filterData = (data,condition) => {
     console.log(`${champion}`);
   }
 };
+
+export const searchChamp = (champName,dataSet) => {
+    //Recibir el nombre del campeon que estoy buscando
+    for (const champion in dataSet) {
+      //Encontrarlo en la data
+      if(champion == champName){
+        //Devolveria el campeon
+        return dataSet[champion];
+      } 
+    }
+}
