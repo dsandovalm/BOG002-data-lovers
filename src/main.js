@@ -83,7 +83,7 @@ document.getElementById("cardView").addEventListener("click", showCardsOn);
 
 function createP(key,value){
   let p = document.createElement('p');
-  p.innerHtml = `${key}: ${value}`;
+  p.appendChild(document.createTextNode(`${key}: ${value}`));
   return p
 }
 
