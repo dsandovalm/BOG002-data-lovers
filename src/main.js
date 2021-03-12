@@ -81,18 +81,12 @@ document.getElementById("cardView").addEventListener("click", showCardsOn);
 
 // Vistas detalladas
 
-function createP(key,value){
-  let p = document.createElement('p');
-  p.appendChild(document.createTextNode(`${key}: ${value}`));
-  return p
-}
-
 function details(championName) {
   //Recibir el campeon
   let champion = searchChamp(championName, data.data);
   //Tomar su información para llenar la pagina de detalles
   
-  //PARTE 1 Info básica
+  //PARTE 1 y 2 Info básica + Bio
   
   document.getElementById("main").innerHTML = `
       <h2 id="name">${champion.id}</h2>
@@ -116,14 +110,18 @@ function details(championName) {
 
     <p class="">${champion.blurb}</p>`
   
-  //PARTE 2 STATS
+  //PARTE 3 STATS
   
   let stats = document.createElement('div');
   
   for(const keys in champion.stats){
-    stats.appendChild(createP(keys, champion.stats[keys]));
+    let p = document.createElement('p');
+    p.appendChild(document.createTextNode(`${keys}: ${champion.stats[keys]}`));
+    stats.appendChild(p);
   }
+  
   document.getElementById("main").appendChild(stats);
+  
   /*
   <h2 id="name">Nombre</h2>
       <div class="info"> 
@@ -173,4 +171,3 @@ function details(championName) {
 //Run
     
 show(data.data);
-//184
