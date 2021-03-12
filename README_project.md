@@ -4,12 +4,13 @@
 
 ## Decisiones de diseño
 
-### Usuario
+## Usuario
 
 Los principales usuarios de esta aplicación son jugadores nuevos de League of Legends que quieren aprender más sobre los campeones del juego.
 
 Un problema al que se enfrentan es el desconocimiento de los campeones que hay disponibles, el no saber cual elegir para empezar o que habilidades tiene el campeón que han elegido.
 
+### Historias de Usuario
 
 ## Interfaz
 
@@ -19,6 +20,6 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipo de baja Fidelidad
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-![Cuadricula](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
+![Cuadricula](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
+![Info reducida](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
 
