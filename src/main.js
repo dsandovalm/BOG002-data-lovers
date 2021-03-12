@@ -60,9 +60,7 @@ function show(dataSet) {
 
     //Ahora a cada elemento creado (sea imagen o tarjeta) le ponemos un listener para el click
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
-    document.getElementById(champion.toLowerCase().addEventListener("click", function () {
-        details(champion);
-      });
+    document.getElementById(champion.toLowerCase().addEventListener("click", function () {details(champion)});
   }
 }
 
