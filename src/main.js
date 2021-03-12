@@ -38,7 +38,7 @@ function show(dataSet) {
         div.setAttribute("id", champion.toLowerCase());
         div.setAttribute("class", "card");
         let img = document.createElement("img");
-        image.setAttribute("src", dataSet[champion].splash);
+        img.setAttribute("src", dataSet[champion].splash);
         let info = document.createElement("div");
         let name = document.createElement("p");
         name.innerHTML = champion;
@@ -67,6 +67,7 @@ function show(dataSet) {
 function setView(value) {
   view = value;
   show(data.data);
+  console.log('view')
 }
 
 function showCuadOn() {
