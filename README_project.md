@@ -20,6 +20,12 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipo de baja Fidelidad
 
-![Cuadricula](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
-![Info reducida](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
+![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
+![Cuadricula en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cuad.png)
+
+![Info reducida en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
+![Info reducida en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cards.png)
+
+![Detalles en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
+![Detalles en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cards.png)
 
