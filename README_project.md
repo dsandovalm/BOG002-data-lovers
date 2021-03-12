@@ -20,4 +20,5 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 ### Prototipo de baja Fidelidad
 
 ![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Cuadricula](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
 
