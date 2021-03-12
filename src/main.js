@@ -81,6 +81,12 @@ document.getElementById("cardView").addEventListener("click", showCardsOn);
 
 // Vistas detalladas
 
+function createP(key,value){
+  let p = document.createElement('p');
+  p.innerHtml = `${key}: ${value}`;
+  return p
+}
+
 function details(championName) {
   //Recibir el campeon
   let champion = searchChamp(championName, data.data);
@@ -108,30 +114,16 @@ function details(championName) {
       </div>
       <img src="${champion.splash}">
 
-    <p class="">${champion.blurb}</p>
-    <div>
-      <h3>Stats</h3>
-      <p>hp: ${champion.stats.hp}</p>
-      <p>hpperlevel: ${champion.stats.hp}</p>
-      <p>mp</p>
-      <p>mpperlevel</p>
-      <p>movespeed</p>
-      <p>armor</p>
-      <p>armorperlevel</p>
-      <p>spellblock</p>
-      <p>spellblockperlevel</p>
-      <p>attackrange hpregen</p>
-      <p>hpregenperlevel</p>
-      <p>mpregen</p>
-      <p>mpregenperlevel</p>
-      <p>crit</p>
-      <p>critperlevel</p>
-      <p>attackdamage</p>
-      <p>attackdamageperlevel</p>
-      <p>attackspeedoffset</p>
-      <p>attackspeedperlevel</p>
-    </div>
-`
+    <p class="">${champion.blurb}</p>`
+  
+  //PARTE 2 STATS
+  
+  let stats = document.createElement('div');
+  
+  for(const keys in champion.stats){
+    stats.appendChild(createP(keys, champion.stats[keys]));
+  }
+  document.getElementById("main").appendChild(stats);
   /*
   <h2 id="name">Nombre</h2>
       <div class="info"> 
@@ -181,3 +173,4 @@ function details(championName) {
 //Run
     
 show(data.data);
+//184
