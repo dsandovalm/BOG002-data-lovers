@@ -37,7 +37,7 @@ function show(dataSet) {
         let div = document.createElement("div");
         div.setAttribute("id", champion.toLowerCase());
         div.setAttribute("class", "card");
-        let image = document.createElement("img");
+        let img = document.createElement("img");
         image.setAttribute("src", dataSet[champion].splash);
         let info = document.createElement("div");
         let name = document.createElement("p");
@@ -50,7 +50,7 @@ function show(dataSet) {
         info.appendChild(name);
         info.appendChild(level);
         info.appendChild(roles);
-        div.appendChild(image);
+        div.appendChild(img);
         div.appendChild(info);
         container.appendChild(div);
         break;
