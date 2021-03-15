@@ -20,6 +20,10 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipo de baja Fidelidad
 
+<img width="360" src="./images/figma/low_phone_cuad.png">
+<img src="./images/figma/Desktop-2.png">
+<img width="300" src="./images/figma/Desktop-3.png">
+
 ![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
 ![Cuadricula en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cuad.png)
 
