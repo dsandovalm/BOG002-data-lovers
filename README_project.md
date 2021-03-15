@@ -25,16 +25,14 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipos de baja Fidelidad
 
-#### Cuadricula
+#### Celular
 <img width="360" src="./images/figma/low_phone_cuad.png">
-<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-1.png">
-
-#### Perfiles resumidos
 <img width="360" src="./images/figma/low_phone_cards.png">
-<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-2.png">
-
-#### Detalles
 <img width="360" src="./images/figma/low_phone_details.png">
+
+#### Escritorio
+<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-1.png">
+<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-2.png">
 <img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-3.png">
 
 <!-- ![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
@@ -44,7 +42,11 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 ![Detalles en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_details.png)
 ![Detalles en Computador](https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/low_desk_details.png) -->
 
-### Prototipo de alta Fidelidad
+### Prototipos de alta Fidelidad
 
+#### Celular
 
-
+<img width="360" src="./images/figma/high_phone_cuad.png">
+<img width="360" src="./images/figma/high_phone_cards.png">
+<img width="360" src="./images/figma/high_phone_details_caitlyn.png">
+<img width="360" src="./images/figma/high_phone_bar.png">
