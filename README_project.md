@@ -12,6 +12,11 @@ Un problema al que se enfrentan es el desconocimiento de los campeones que hay d
 
 ### Historias de Usuario
 
+**Historia de Usuario 1**: Yo como usuario quiero ver en la página de inicio el perfil con los datos más importantes de los campeones del juego.
+
+En esta historia es necesario definir los datos que contienen los perfiles reducidos, una vista con ellos y una vista de perfiles detallados.
+
+
 ## Interfaz
 
 El diseño de esta aplicación está pensado a partir del diseño de las interfaces del juego, tomando su gama de colores y estilo.
@@ -20,14 +25,16 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipo de baja Fidelidad
 
-**Phone**
+#### Cuadricula
 <img width="360" src="./images/figma/low_phone_cuad.png">
-<img width="360" src="./images/figma/low_phone_cards.png">
-<img width="360" src="./images/figma/low_phone_details.png">
-
-**Desktop**
 <img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-1.png">
+
+#### Perfiles resumidos
+<img width="360" src="./images/figma/low_phone_cards.png">
 <img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-2.png">
+
+#### Detalles
+<img width="360" src="./images/figma/low_phone_details.png">
 <img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-3.png">
 
 <!-- ![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
