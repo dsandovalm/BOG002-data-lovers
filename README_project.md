@@ -20,21 +20,23 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ### Prototipo de baja Fidelidad
 
+**Phone**
 <img width="360" src="./images/figma/low_phone_cuad.png">
 <img width="360" src="./images/figma/low_phone_cards.png">
 <img width="360" src="./images/figma/low_phone_details.png">
 
-![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
-![Cuadricula en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cuad.png)
+**Desktop**
+<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-1.png">
+<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-2.png">
+<img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-3.png">
 
+<!-- ![Cuadricula en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cuad.png)
+![Cuadricula en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cuad.png)
 ![Info reducida en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_cards.png)
 ![Info reducida en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_cards.png)
-
 ![Detalles en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_details.png)
-![Detalles en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_details.png)
+![Detalles en Computador](https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/low_desk_details.png) -->
 
-<img src="./images/figma/Desktop-1.png">
-<img src="./images/figma/Desktop-2.png">
-<img width="300" src="./images/figma/Desktop-3.png">
+
 
 
