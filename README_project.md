@@ -23,7 +23,7 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 ![Nuevo diseño de tienda](https://cdn1.dotesports.com/wp-content/uploads/2020/06/12103947/All-items-1024x688.jpg)
 
-### Prototipo de baja Fidelidad
+### Prototipos de baja Fidelidad
 
 #### Cuadricula
 <img width="360" src="./images/figma/low_phone_cuad.png">
@@ -44,6 +44,7 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 ![Detalles en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_details.png)
 ![Detalles en Computador](https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/low_desk_details.png) -->
 
+### Prototipo de alta Fidelidad
 
 
 
