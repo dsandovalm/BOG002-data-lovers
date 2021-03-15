@@ -29,3 +29,8 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 ![Detalles en Celular](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_phone_details.png)
 ![Detalles en Computador](https://raw.githubusercontent.com/dsandovalm/BOG002-data-lovers/main/images/figma/low_desk_details.png)
 
+<img src="./images/figma/Desktop-1.png">
+<img src="./images/figma/Desktop-2.png">
+<img width="300" src="./images/figma/Desktop-3.png">
+
+
