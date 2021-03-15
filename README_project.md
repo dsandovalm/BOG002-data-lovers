@@ -26,9 +26,7 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 ### Prototipos de baja Fidelidad
 
 #### Celular
-<img width="360" src="./images/figma/low_phone_cuad.png">
-<img width="360" src="./images/figma/low_phone_cards.png">
-<img width="360" src="./images/figma/low_phone_details.png">
+<img width="360" src="./images/figma/low_phone_cuad.png"> <img width="360" src="./images/figma/low_phone_cards.png"> <img width="360" src="./images/figma/low_phone_details.png">
 
 #### Escritorio
 <img width="480" src="https://raw.githubusercontent.com/AndreaCarolinaT/BOG002-data-lovers/main/images/figma/Desktop-1.png">
