@@ -44,7 +44,4 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 
 #### Celular
 
-<img width="360" src="./images/figma/high_phone_cuad.png">
-<img width="360" src="./images/figma/high_phone_cards.png">
-<img width="360" src="./images/figma/high_phone_details_caitlyn.png">
-<img width="360" src="./images/figma/high_phone_bar.png">
+<img width="360" src="./images/figma/high_phone_cuad.png"> <img width="360" src="./images/figma/high_phone_cards.png"> <img width="360" src="./images/figma/high_phone_details_caitlyn.png"> <img width="360" src="./images/figma/high_phone_bar.png">
