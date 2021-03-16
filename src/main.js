@@ -5,7 +5,7 @@ let view = "cuad";
 
 //Vistas generales
 
-function show(dataSet) { //Creada en HDU 1. Modificada en HDU 2
+function show(dataSet) { //Creada en HDU 1. Modificada en HDU 3
   let container = document.getElementById("main");
   container.style.display = "flex";
   container.innerHTML = "";
@@ -64,21 +64,21 @@ function show(dataSet) { //Creada en HDU 1. Modificada en HDU 2
   }
 }
 
-function setView(value) { //Creada en HDU 2
+function setView(value) { //Creada en HDU 3
   view = value;
   show(data.data);
   console.log('view')
 }
 
-function showCuadOn() { //Creada en HDU 2
+function showCuadOn() { //Creada en HDU 3
   setView("cuad");
 }
-function showCardsOn() { //Creada en HDU 2
+function showCardsOn() { //Creada en HDU 3
   setView("card");
 }
 
-document.getElementById("cuadView").addEventListener("click", showCuadOn); //Creada en HDU 2
-document.getElementById("cardView").addEventListener("click", showCardsOn); //Creada en HDU 2
+document.getElementById("cuadView").addEventListener("click", showCuadOn); //Creada en HDU 3
+document.getElementById("cardView").addEventListener("click", showCardsOn); //Creada en HDU 3
 
 // Vistas detalladas
 
