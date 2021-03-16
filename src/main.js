@@ -5,7 +5,7 @@ let view = "cuad";
 
 //Vistas generales
 
-function show(dataSet) {
+function show(dataSet) { //Creada en HDU 1. Modificada en HDU 2
   let container = document.getElementById("main");
   container.style.display = "flex";
   container.innerHTML = "";
@@ -64,25 +64,25 @@ function show(dataSet) {
   }
 }
 
-function setView(value) {
+function setView(value) { //Creada en HDU 2
   view = value;
   show(data.data);
   console.log('view')
 }
 
-function showCuadOn() {
+function showCuadOn() { //Creada en HDU 2
   setView("cuad");
 }
-function showCardsOn() {
+function showCardsOn() { //Creada en HDU 2
   setView("card");
 }
 
-document.getElementById("cuadView").addEventListener("click", showCuadOn);
-document.getElementById("cardView").addEventListener("click", showCardsOn);
+document.getElementById("cuadView").addEventListener("click", showCuadOn); //Creada en HDU 2
+document.getElementById("cardView").addEventListener("click", showCardsOn); //Creada en HDU 2
 
 // Vistas detalladas
 
-function details(championName) {
+function details(championName) { //Creada en HDU 1
   //Recibir el campeon
   let champion = searchChamp(championName, data.data);
   //Tomar su información para llenar la pagina de detalles
@@ -170,5 +170,5 @@ function details(championName) {
 }
 
 //Run
-    
+   
 show(data.data);
