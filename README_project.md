@@ -14,7 +14,7 @@ Un problema al que se enfrentan es el desconocimiento de los campeones que hay d
 
 **Historia de Usuario 1**: Yo como usuario quiero ver en la página de inicio el perfil con los datos más importantes de los campeones del juego.
 
-En esta historia es necesario definir los datos que contienen los perfiles reducidos, una vista con ellos y una vista de perfiles detallados.
+En esta historia es necesario definir los datos que contienen los perfiles reducidos, una vista con ellos y una vista de perfiles detallados. Se crearon las funciones show y details en el _main_, ambas funciones interactuando con el DOM por lo que aún no se ha utilizado el archivo _data_.
 
 
 ## Interfaz
@@ -45,3 +45,4 @@ El diseño de esta aplicación está pensado a partir del diseño de las interfa
 #### Celular
 
 <img width="360" src="./images/figma/high_phone_cuad.png"> <img width="360" src="./images/figma/high_phone_cards.png"> <img width="360" src="./images/figma/high_phone_details_caitlyn.png"> <img width="360" src="./images/figma/high_phone_bar.png">
+
