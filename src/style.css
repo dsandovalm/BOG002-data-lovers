@@ -1,14 +1,77 @@
 /* - - - GENERAL - - - */
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Rubik:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root{
+    --fondo: #03101D;
+    --transparente: #030f1cbf;
+    --degradado: #0C2F3B;
+    --celeste: #31CED7;
+    --claro: #D6FAF9;
+    --crema: #E1D6AC;
+    --ocre: #A79966;
+    color:var(--crema);
+}
 
 * {
     margin:0;
     box-sizing: border-box;
 }
 
-.main {
+body{
+    background: linear-gradient(165deg,var(--fondo) 80%,var(--degradado));
+    font-family: "Rubik", sans-serif;
+    /*background-color: -moz-linear-gradient(150deg,var(--fondo),var(--degradado));*/
+}
+
+header{
+    background-image: url(https://www.whatsupmags.com/wp-content/uploads/2019/11/League-of-Legends-Promo-Art-e1574202680748.jpg);
+    background-size: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1{
+    padding: 50px;
+    margin:0 auto;
+    color:var(--ocre);
+    text-shadow: 2px 1px var(--fondo);
+    font-family: "Redressed", cursive;
+    font-size: 50px;
+}
+
+.nav-bar{
+    background-color: var(--transparente);
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu li{
+    padding: 5px 0;
+    flex: 1 1 0;
+}
+
+.menu li ul{
+    width: 25%;
+    position:absolute;
+    bottom: -63px;
+    background-color: var(--fondo);
+    border: 1px solid var(--ocre);
+    display: none;
+}
+.menu li:hover ul{
+    display: block;
+}
+
+section {
     width: 80%;
     margin: 0 auto;
-
     display: flex;
     flex-wrap: wrap;
 }
@@ -24,11 +87,15 @@ ul {
     justify-content: space-between;
 }
 
+div {
+    padding:5px;
+    border: solid 1px #000;
+}
+
 /* - - - CUAD - - - */
 
 .small-pic{
-    width: calc(100%/6);
-    height: auto;   
+    border: 1px solid var(--ocre);
 }
 
 /* - - - CARDS - - - */
