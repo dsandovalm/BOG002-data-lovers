@@ -1,26 +1,29 @@
 /* - - - GENERAL - - - */
+
 @import url('https://fonts.googleapis.com/css2?family=Redressed&family=Rubik:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root{
     --fondo: #03101D;
     --transparente: #030f1cbf;
     --degradado: #0C2F3B;
+    --azul: #072D53;
     --celeste: #31CED7;
     --claro: #D6FAF9;
     --crema: #E1D6AC;
     --ocre: #A79966;
-    color:var(--crema);
 }
 
 * {
     margin:0;
     box-sizing: border-box;
+    cursor: url(img/espada.png), auto;
 }
 
 body{
-    background: linear-gradient(165deg,var(--fondo) 80%,var(--degradado));
+    background: linear-gradient(175deg, var(--fondo) 60%, var(--degradado)80%);
+		color:var(--crema);
+		background-attachment: fixed;
     font-family: "Rubik", sans-serif;
-    /*background-color: -moz-linear-gradient(150deg,var(--fondo),var(--degradado));*/
 }
 
 header{
@@ -39,40 +42,89 @@ h1{
     text-shadow: 2px 1px var(--fondo);
     font-family: "Redressed", cursive;
     font-size: 50px;
-}
-
-.nav-bar{
-    background-color: var(--transparente);
-    position: relative;
-    bottom: 0;
     text-align: center;
 }
 
-.menu{
-    display: flex;
+h2{
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+  color:var(--ocre);
 }
 
-.menu li{
-    padding: 5px 0;
+footer{
+	background-color: var(--degradado);
+	padding: 5px;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* - - - Menús - - - */
+
+ul {
+  list-style-type: none;
+	padding: 3px;
+}
+
+aside{
+	display: none;
+}
+
+.nav-lat li:hover{
+  background-color: var(--transparente);
+}
+
+.nav-lat{
+  background-color: var(--azul);
+}
+
+.menu{
+	font-size: 18px;
+}
+
+.menu-bar{
+    text-align: left;
+		margin: 0;
+    padding: 0;
+    width: 40px;
+    position: relative;
+    bottom: 0;
+		background-color: var(--azul);
+    display: block;
+    justify-content: space-between;
+}
+
+.menu-bar li{
     flex: 1 1 0;
 }
 
-.menu li ul{
-    width: 25%;
-    position:absolute;
-    bottom: -63px;
+.menu-bar li ul{
+    width: 250%;
+    /* position:sticky; */
+    bottom: -50px;
     background-color: var(--fondo);
     border: 1px solid var(--ocre);
     display: none;
 }
-.menu li:hover ul{
+
+.menu-bar li:hover ul{
     display: block;
+}
+
+.nav-bar li:hover{
+  background-color: var(--transparente);
+}
+
+a{
+	color: var(--crema);
+  text-decoration: none;
 }
 
 section {
     width: 80%;
     margin: 0 auto;
     display: flex;
+		justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -80,32 +132,57 @@ img {
     max-width: 100%;
 }
 
-ul {
-    list-style-type: none;
-    padding: 3px;
-    display:flex;
-    justify-content: space-between;
-}
-
-div {
-    padding:5px;
-    border: solid 1px #000;
-}
-
 /* - - - CUAD - - - */
 
+.square{
+    width: calc(100%/6);
+    padding: 2%;
+}
 .small-pic{
+    width: 100%;
     border: 1px solid var(--ocre);
 }
+
 
 /* - - - CARDS - - - */
 
 .card{
-    width:50%;
-    padding:6px
+    width:40%;
+    margin:5%;
+    border: 1px solid var(--ocre);
 }
 .card div{
-    padding:0 6px
+    padding: 6px;
+}
+
+/* - - - STATS - - - */
+
+.stats {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  word-break: break-all;
+}
+
+.line p {
+  padding: 3px;
+  text-align: justify;
+}
+
+.keys{
+  width: 70%;
+  text-align: right;
+}
+.values{
+  width: 30%;
+  text-align: left;
 }
 
 /*.card-pic {
@@ -119,21 +196,70 @@ div {
     }
 } */
 
-@media (orientation: landscape) { 
-    .main{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        max-width: 720px;
-        margin: 0 auto;
-    }
+@media (min-width: 720px) and (orientation: landscape) { 
 
-    .small-pic{
-        width: 48px;
-        height: 48px;   
+	.container {
+		width: 100%;
+		display: flex;
+	}
+
+	/* - - - MENU - - - */
+
+	.nav-bar{
+		display: none;
+	}
+	aside {
+		width: 20%;
+		padding: 20px 10px;
+		max-width: 240px;
+		
+		flex: 0 0 auto;
+		display: block;
+		background-color: var(--transparente);
+	}
+
+	.content {
+		flex:auto;
+	}
+
+	section {
+    width: 100%;
+		max-width: 900px;
+	}
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+		
+
+    .square{
+        width: calc(100%/9);
+        height: auto;   
     }
 
     .card{
         width:25%;
     }
 }
+
+/* - - - Help - - - */
+
+.aboutLol {
+  font-size: 23px;
+	text-align: center;
+  position: right;
+  bottom: 0;
+  color:var(--ocre);
+}
+
+/* #objective {
+writing-mode: vertical-lr;
+} */
+
+
+
+
