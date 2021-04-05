@@ -30,6 +30,7 @@ header{
     background-image: url(https://www.whatsupmags.com/wp-content/uploads/2019/11/League-of-Legends-Promo-Art-e1574202680748.jpg);
     background-size: 100%;
     height: 300px;
+		max-height: 60vw ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,6 +53,10 @@ h2{
   color:var(--ocre);
 }
 
+h3{
+  text-align: center;
+}
+
 footer{
 	background-color: var(--degradado);
 	padding: 5px;
@@ -61,64 +66,121 @@ footer{
 
 /* - - - Menús - - - */
 
+aside{
+	background-color: var(--azul);
+	border-right-style: inset;
+}
+
 ul {
   list-style-type: none;
 	padding: 3px;
 }
 
-aside{
-	display: none;
+aside li:hover{
+  background-color: var(--fondo);
 }
 
-.nav-lat li:hover{
-  background-color: var(--transparente);
-}
-
-.nav-lat{
-  background-color: var(--azul);
-}
-
-.menu{
-	font-size: 18px;
-}
-
-.menu-bar{
-    text-align: left;
+.menu {
+		text-align: center;
 		margin: 0;
+		margin-top: 82px;
+		margin-bottom: 0;
     padding: 0;
     width: 40px;
-    position: relative;
-    bottom: 0;
-		background-color: var(--azul);
+		position: static;   
     display: block;
-    justify-content: space-between;
+    max-height: 800px;
 }
 
-.menu-bar li{
-    flex: 1 1 0;
+.menu li{
+	
+  flex: 1 1 0;
 }
 
-.menu-bar li ul{
-    width: 250%;
-    /* position:sticky; */
-    bottom: -50px;
+.menu img{
+	padding: 10px;
+	height: 40px;
+}
+
+.menu li ul{
+    width: 120px;
+    bottom:40px;
+		right:-40px;
+		position: relative;
     background-color: var(--fondo);
     border: 1px solid var(--ocre);
     display: none;
 }
 
-.menu-bar li:hover ul{
+.menu li:hover ul{
     display: block;
 }
 
-.nav-bar li:hover{
-  background-color: var(--transparente);
+.overlay {
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  display: flex;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  background-color: #E1D6AC;
+  width: 330px;
+  height: 170px;
+  margin-left: 12px;
+  border-radius: 15px;
+  align-items: center;
+  z-index: 100px;
+  padding: 15px;
+	position: relative;
+  justify-content:right;
+  /* display: none; */
+}
+
+.closeFilt {
+ margin-top: 0px;
+ margin-right: 0px;
+}
+
+div select {
+ width: 100px;
+ height: 30px;
+ text-align: center;
+ margin-top: 70px;
+ border-radius: 10px;
+ background-color: var(--ocre);
+ justify-content: space-between;
+ display: flex;
+}
+
+#filtButton {
+ height: 30px;
+ margin-top: 120px;
+ margin-right: 30px;
+ border-radius: 5px;
+ text-align: center;
 }
 
 a{
 	color: var(--crema);
   text-decoration: none;
 }
+
+.container {
+		width: 100%;
+		display: flex;
+	}
+
+	.content {
+		flex:auto;
+	}
 
 section {
     width: 80%;
@@ -167,7 +229,7 @@ img {
 .line {
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  width: 100%;
   word-break: break-all;
 }
 
@@ -202,27 +264,30 @@ img {
 		width: 100%;
 		display: flex;
 	}
+	
+	.line{
+		width: 50%;
+	}
 
 	/* - - - MENU - - - */
 
-	.nav-bar{
-		display: none;
-	}
 	aside {
-		width: 20%;
 		padding: 20px 10px;
-		max-width: 240px;
-		
+		max-width: 240px;		
 		flex: 0 0 auto;
 		display: block;
-		background-color: var(--transparente);
+	}
+
+	.texto{
+		display: inline-block;
 	}
 
 	.content {
 		flex:auto;
+		z-index: 1;
 	}
 
-	section {
+		section {
     width: 100%;
 		max-width: 900px;
 	}
@@ -247,19 +312,26 @@ img {
 }
 
 /* - - - Help - - - */
-
-.aboutLol {
-  font-size: 23px;
-	text-align: center;
-  position: right;
-  bottom: 0;
-  color:var(--ocre);
+#return {
+  height: 36px;
+	padding: 6px;
 }
 
-/* #objective {
-writing-mode: vertical-lr;
-} */
+#return img{
+  height: 100%;
+}
 
+.aboutLol {
+ 	text-align: justify;
+  position: relative;
+  margin-bottom: 50px;
+  color: var(--ocre);
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
 
-
+.aboutLol h3 {
+	font-size: 30px;
+}
 
