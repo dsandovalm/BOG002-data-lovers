@@ -1,51 +1,55 @@
-import { example, filterData, searchChamp } from "./data.js";
+import { filterData, searchChamp } from "./data.js";
 import data from "./data/lol/lol.js";
 
-let view = "cuad";
+console.clear();
 
-//Vistas generales
+const app = {
+  view: 'cuad',  
+  currentData: data.data,
+	elementspp: 36,
+	currentPage: 0,
+}
 
-function show(dataSet) { //Creada en HDU 1. Modificada en HDU 3
+
+// - - - - - - - CREACIÓN DE HTML
+
+// Vistas generales
+
+function show() { //Creada en HDU 1. Modificada en HDU 3
+  document.getElementById('details').style.display = 'none';
   let container = document.getElementById("main");
   container.style.display = "flex";
   container.innerHTML = "";
 
+	let pagedData = pages(app.currentData,app.elementspp);
+
   //Toma un set de datos y los muestra
-  for (const champion in dataSet) {
-    switch (view) {
+  for (const champion in pagedData[app.currentPage]) {
+    let div = document.createElement("div");
+    div.setAttribute("id", champion.toLowerCase());
+    switch (app.view) {
+
       case "cuad":
-        /* <img src="http://icon.png" id="champion" class="small-pic">*/
-
         let image = document.createElement("img");
-        image.setAttribute("src", dataSet[champion].img);
+        image.setAttribute("src", app.currentData[champion].img);
         image.setAttribute("class", "small-pic");
+        div.setAttribute("class", "square");
         //El id es el nombre del campeón pasado totalmente a minusculas
-        image.setAttribute("id", champion.toLowerCase());
-        container.appendChild(image);
+        div.appendChild(image);
+        container.appendChild(div);
         break;
-      case "card":
-        //En tarjetas
-        /* <div class="card">
-                <img src="http://splash.jpg" alt="" class="card-pic">
-                <div class="info">
-                    <p>Nombre</p>
-                    <p>Dificultad</p>
-                    <p>Tags</p>
-                </div>
-            </div> */
 
-        let div = document.createElement("div");
-        div.setAttribute("id", champion.toLowerCase());
+      case "card":
         div.setAttribute("class", "card");
         let img = document.createElement("img");
-        img.setAttribute("src", dataSet[champion].splash);
+        img.setAttribute("src", app.currentData[champion].splash);
         let info = document.createElement("div");
         let name = document.createElement("p");
         name.innerHTML = champion;
         let level = document.createElement("p");
-        level.innerHTML = `Dificultad: ${dataSet[champion].info.difficulty}`;
+        level.innerHTML = `Dificultad: ${app.currentData[champion].info.difficulty}`;
         let roles = document.createElement("p");
-        roles.innerHTML = `${dataSet[champion].tags[0]}`;
+        roles.innerHTML = `${app.currentData[champion].tags[0]}`;
 
         info.appendChild(name);
         info.appendChild(level);
@@ -54,31 +58,15 @@ function show(dataSet) { //Creada en HDU 1. Modificada en HDU 3
         div.appendChild(info);
         container.appendChild(div);
         break;
+
       default:
         break;
     }
-
     //Ahora a cada elemento creado (sea imagen o tarjeta) le ponemos un listener para el click
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
-    document.getElementById(champion.toLowerCase()).addEventListener("click", function () {details(champion)});
+    document.getElementById(champion.toLowerCase()).addEventListener("click", function () { details(champion) });
   }
 }
-
-function setView(value) { //Creada en HDU 3
-  view = value;
-  show(data.data);
-  console.log('view')
-}
-
-function showCuadOn() { //Creada en HDU 3
-  setView("cuad");
-}
-function showCardsOn() { //Creada en HDU 3
-  setView("card");
-}
-
-document.getElementById("cuadView").addEventListener("click", showCuadOn); //Creada en HDU 3
-document.getElementById("cardView").addEventListener("click", showCardsOn); //Creada en HDU 3
 
 // Vistas detalladas
 
@@ -86,10 +74,12 @@ function details(championName) { //Creada en HDU 1
   //Recibir el campeon
   let champion = searchChamp(championName, data.data);
   //Tomar su información para llenar la pagina de detalles
-  
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('details').style.display = 'block';
+
   //PARTE 1 y 2 Info básica + Bio
-  
-  document.getElementById("main").innerHTML = `
+
+  document.getElementById("details").innerHTML = `
       <h2 id="name">${champion.id}</h2>
       <div class="info"> 
         <img id="icon" src="${champion.img}">
@@ -109,21 +99,156 @@ function details(championName) { //Creada en HDU 1
       </div>
       <img src="${champion.splash}">
 
-    <p class="">${champion.blurb}</p>`
-  
+    <p class=""> ${champion.blurb} [Leer más]</p>`
+
   //PARTE 3 STATS
-  
+
   let stats = document.createElement('div');
-  
-  for(const keys in champion.stats){
-    let p = document.createElement('p');
-    p.appendChild(document.createTextNode(`${keys}: ${champion.stats[keys]}`));
-    stats.appendChild(p);
+  stats.setAttribute('class', 'stats');
+
+  for (const keys in champion.stats) {
+    let line = document.createElement('div');
+    line.setAttribute('class', 'line');
+    let left = document.createElement('p');
+    left.setAttribute('class', 'keys');
+    let rigth = document.createElement('p');
+    rigth.setAttribute('class', 'values');
+    left.appendChild(document.createTextNode(keys));
+    rigth.appendChild(document.createTextNode(champion.stats[keys]));
+    line.appendChild(left);
+    line.appendChild(rigth);
+    stats.appendChild(line);
   }
-  
-  document.getElementById("main").appendChild(stats);
-  
-  /*
+  document.getElementById("details").appendChild(stats);
+}
+
+// - - - - - - - AUX
+
+function filter() {
+  let rol = document.getElementById('selectTag').value;
+  let dificult = document.getElementById('selectDifficulty').value;
+  setData(filterData(data.data,
+    {
+      tags: rol,
+      info: {
+        difficulty: dificult,
+      },
+    }))
+  show();
+  close();
+}
+
+function sort() {
+  show();
+}
+
+function pages(dataSet, n){
+	//Esta función divide la data en arreglos de objetos de longitud n
+	//Que recibo? Data y un numero.
+
+	let array = [];
+	let cont = 0;
+
+	for( const champion in dataSet ){
+		if(cont%n == 0){
+			array[Math.floor(cont/n)] = {};
+		}
+		array[Math.floor(cont/n)][champion] = dataSet[champion];
+		cont++;
+	}
+	return array;
+} 
+
+
+// - - - - - - - POP UPS
+
+function close(){
+	document.getElementById('popUp').style.display = 'none';
+	document.getElementById('overlay').style.display = 'none'
+}
+
+function openFilter(){
+	document.getElementById('popUp').style.display = 'flex';
+	document.getElementById('overlay').style.display = 'block';
+}
+
+// - - - - - - - SETTERS
+
+function setView(value) { //Creada en HDU 2
+  app.view = value;
+  show();
+}
+
+function setPages(value) { //Creada en HDU 2
+  app.elementspp = value;
+  show();
+}
+
+function setData(data) {
+  app.currentData = data;
+	app.currentPage = 0;
+  show();
+}
+
+function setPage(n){
+	app.currentPage = n;
+
+	document.getElementById('prev').innerHTML = (n == 0 ? '' : n);
+	document.getElementById('actual').innerHTML = n+1;
+	document.getElementById('next').innerHTML = (n == pages(app.currentData, app.elementspp).length - 1 ? '' : n+2);
+
+	show();
+} 
+
+//Como hacemos el control de las páginas?
+
+// - - - - - - - LISTENERS
+
+document.getElementById("cuadView").addEventListener("click", function () { setView('cuad'); setPages(36) }); //Creada en HDU 2
+document.getElementById("cardView").addEventListener("click", function () { setView('card'); setPages(12) }); //Creada en HDU 3
+
+document.getElementById('filtButton').addEventListener("click", filter);
+document.getElementById('close').addEventListener("click", close);
+document.getElementById('openFilter').addEventListener("click", openFilter);
+
+document.getElementById('first').addEventListener("click", function () { setPage(0) });
+
+document.getElementById('prev').addEventListener("click", function () { 
+	let page = app.currentPage == 0 ? 0 : app.currentPage - 1 ;
+	setPage(page)
+});
+
+document.getElementById('next').addEventListener("click", function () { 
+	let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1  ? app.currentPage : app.currentPage + 1 ;
+	setPage(page)
+});
+
+document.getElementById('last').addEventListener("click", function () { 
+	let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1  ? app.currentPage : pages(app.currentData, app.elementspp).length - 1 ;
+	setPage(page)
+});
+
+console.log(pages(data.data,12)[6]);
+
+// - - - - - - - RUN 
+show();
+
+/* BASES HTML */
+
+/* CUADRICULA
+<img src="http://icon.png" id="champion" class="small-pic"> */
+
+/*  RESUMENES
+	<div class="card">
+                <img src="http://splash.jpg" alt="" class="card-pic">
+                <div class="info">
+                    <p>Nombre</p>
+                    <p>Dificultad</p>
+                    <p>Tags</p>
+                </div>
+            </div> */
+
+/* DETAILS
   <h2 id="name">Nombre</h2>
       <div class="info"> 
         <img id="icon" src="https://www.masterypoints.com/assets/img/lol/champion_icons/Aatrox.png" alt="">
@@ -167,8 +292,3 @@ function details(championName) { //Creada en HDU 1
       <p>attackspeedperlevel</p>
     </div>
   */
-}
-
-//Run
-   
-show(data.data);
