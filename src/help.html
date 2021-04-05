@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
 	<header>
 		<h1>LEAGUE OF LEGENDS</h1>
 	</header>
@@ -21,96 +22,91 @@
 						<img src="img/buscar.png" alt="">
 					</abbr>
 				</li>
-        <li>
+                <li>
 					<abbr title="Ordenar">
-						<img src="img/ordenar2.png" alt="">
+						<img src="img/ordenar2.png" alt=""> 
 					</abbr>
-        </li>
-        <li>
+                </li>
+                <li>
 					<abbr id="openFilter" title="Filtrar">
 						<img src="img/filtrar.png" alt="">
-          </abbr>
-              <div class="overlay" id="overlay" style="display: none">
-              <div class="popup" id="popUp" style="display: none">
-                  <img src="img/cerrar.png" alt="" class="closeFilt" id="close">
-                  <div>
-                  <label for="Roles"></label>
-                  <select name="Roles" id="selectTag">
-                    <option value="">Rol</option>
-                    <option value="Fighter">Fighter</option>
-                    <option value="Tank">Tank</option>
-                    <option value="Mage">Mage</option>
-                    <option value="Support">Support</option>
-                    <option value="Assassin">Assassin</option>
-                  </select>
-                  </div>
-                  <div>
-                  <label for="Dificultad"></label>
-                  <select name="Dificultad" id="selectDifficulty">
-                    <option value="">Dificultad</option>
-                    <option value="1"> 1 </option>
-                    <option value="2"> 2 </option>
-                    <option value="3"> 3 </option>
-                    <option value="4"> 4 </option>
-                    <option value="5"> 5 </option>
-                    <option value="10"> 10 </option>
-                  </select>
-                  </div>
-                  <button id="filtButton">Filtrar </button>
-                </div>
-              </div>
-            </li>
-        <li>
-          <abbr title="Vistas">
-            <img src="img/vistas.png" alt="">
-          </abbr>
-          <ul>
-            <li id="cuadView">Cuadricula</li>
-            <li id="cardView">Tarjetas</li>
-          </ul>
-        </li>
-        <li>
-          <a href="help.html">
-            <abbr title="Ayuda">
-              <img src="img/ayuda.png" alt="">
-            </abbr>
-          </a>
-        </li>
-      </ul>
-    </aside>
-
-   <div>
-		<div id="return">
-				<a href="index.html" id="return">
-					<img src="img/return.png" alt="">
-				</a>
-        </div>
+                    </abbr>
+                    <div class="overlay" id="overlay" style="display: none">
+                        <div class="popup" id="popUp" style="display: none">
+                            <img src="img/cerrar.png" alt="" class="closeFilt" id="close">
+                            <div>
+                                <label for="Roles"></label>
+                                <select name="Roles" id="selectTag">
+                                    <option value="">Rol</option>
+                                    <option value="Fighter">Fighter</option>
+                                    <option value="Tank">Tank</option>
+                                    <option value="Mage">Mage</option>
+                                    <option value="Support">Support</option>
+                                    <option value="Assassin">Assassin</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="Dificultad"></label>
+                                <select name="Dificultad" id="selectDifficulty">
+                                    <option value="">Dificultad</option>
+                                    <option value="1"> 1 </option>
+                                    <option value="2"> 2 </option>
+                                    <option value="3"> 3 </option>
+                                    <option value="4"> 4 </option>
+                                    <option value="5"> 5 </option>
+                                    <option value="10"> 10 </option>
+                                </select>
+                            </div>
+                            <button id="filtButton">Filtrar </button>
+                        </div>  
+                    </div>
+                </li>
+                <li>
+                <abbr title="Vistas">
+                    <img src="img/vistas.png" alt="">
+                </abbr>
+                <ul>
+                    <li id="cuadView">Cuadricula</li>
+                    <li id="cardView">Tarjetas</li>
+                </ul>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <abbr title="Ayuda">
+                            <img src="img/ayuda.png" alt="">
+                        </abbr>
+                    </a>
+                </li>
+            </ul>
+        </aside>
     
-        <h2>Sobre el juego</h2>
-        <div class = "aboutLol">
-            <h3>¿De qué trata?</h3>
-            <p> League of Legends es un juego de estrategia por equipos en el que dos equipos de cinco campeones se enfrentan para ver quién destruye antes la base del otro. Elige de entre un elenco de 140 campeones para realizar jugadas épicas, asesinar rivales y derribar torretas para alzarte con la victoria.</p>
-            <br>
-            <br>
-            <h3>¿Cómo se juega?</h3>
-            <br>
-            <br>
-            <h3>Objetivo</h3>
-            <br>
-            <h3>Destruye la base</h3>
-            <p style="text-align: center">El nexo es el corazón de las bases de los equipos. Para ganar la partida, hay que destruir el nexo enemigo.</p><br>
-            <div style="display: block">
-                <h3 style="text-align: justify"> 1. Tu Nexo </h3>
-                <p>Los súbditos se generan en tu nexo. Detrás del nexo se encuentra la fuente, donde podrás recuperar vida y maná con rapidez y acceder a la tienda.</p><br>
-                <h3 style="text-align: justify">2. Tu Nexo Enemigo</h3>
-                <p>El nexo enemigo, que se encuentra en la base del equipo contrario, es igual que el de tu equipo. Si acabas con él, ganarás la partida.</p>
-            </div>
+        <div class="content">
+        <h2>Todos los campeones</h2>
+
+                <section id="main">
+                </section>
+
+                <section id="details">
+                </section>
+
+                <section class="pages">
+                    <p id="first" >Primera</p>
+                    <p id="prev" ></p>
+                    <p id="actual" >1</p>
+                    <p id="next">2</p>
+                    <p id="last" >Ultima</p>
+                </section>
         </div>
     </div>
+
     <footer>
-      <p> Desarrollado por: <a href="https://github.com/AndreaCarolinaT" target="_blank"> Andrea T. </a> y <a href="https://github.com/dsandovalm" target="_blank"> Diana S. </a> </p>
-      <p> 2021 </p>
+            <p>
+                Desarrollado por: <a href="https://github.com/AndreaCarolinaT" target="_blank"> Andrea T. </a> y <a href="https://github.com/dsandovalm" target="_blank"> Diana S. </a>
+            </p>
+            <p>2021</p>
     </footer>
-    <script src="main.js" type="module"> </script>
-  </body>
+
+    <script src="main.js" type="module"></script>
+
+</body>
 </html>
