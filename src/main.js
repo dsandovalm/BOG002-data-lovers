@@ -10,7 +10,6 @@ const app = {
 	currentPage: 0,
 }
 
-console.log
 
 // - - - - - - - CREACIÓN DE HTML
 
@@ -234,9 +233,11 @@ document.getElementById('last').addEventListener("click", function () {
 	setPage(page)
 });
 
+console.log(pages(data.data,12)[6]);
+
 // - - - - - - - RUN 
 show();
-console.log(sortData(data.data,'difficulty'))
+console.log(sortData(dataSet,'difficulty'))
 
 /* BASES HTML */
 
