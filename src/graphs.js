@@ -1,4 +1,45 @@
-const graphs = {
+const stats = {
+  max: function (datos){
+    let maximo = datos[0];
+    for(let i=1;i<datos.length;i++){
+      if(datos[i]>maximo){
+        maximo = datos[i]
+      }
+    }
+    return maximo;
+  },
+  min: function (datos){
+    let minimo = datos[0];
+    for(let i=1;i<datos.length;i++){
+      if(datos[i]<minimo){
+        minimo = datos[i]
+      }
+    }
+    return minimo;
+  },
+  
+  mid: function (datos){
+    console.log(datos[0])
+    let floor = datos.sort()[Math.floor((datos.length-1)/2)];
+    let ceil = datos.sort()[Math.ceil((datos.length-1)/2)];
+    console.log('Bot ' + floor + ', Top ' + ceil);
+    return (floor+ceil)/2;
+  },
+  quartil: function (datos){
+    //Como es que se hayan los cuartiles?
+    let floor1 = datos.sort()[Math.floor((datos.length-1)/4)];
+    let ceil1 = datos.sort()[Math.ceil((datos.length-1)/4)];
+    let floor3 = datos.sort()[Math.floor((datos.length-1)*3/4)];
+    let ceil3 = datos.sort()[Math.ceil((datos.length-1)*3/4)];
+    console.log('25% ' + (floor1+ceil1)/2 + ', 75% ' + (floor3+ceil3)/2);
+    return {
+      q1: (floor1+ceil1)/2,
+      q3: (floor3+ceil3)/2,
+    }
+  },
+}
+
+export const graphs = {
   poligon: function(canvas,ctx,datos,maximo){
     //Toma el canvas y encuentra el centro
     let w = canvas.width;
@@ -9,7 +50,6 @@ const graphs = {
     }
     let r = w < h ? w*3/8 : h*3/8; 
     let gap = r/maximo;
-    console.log(gap)
 
     ctx.beginPath();
     ctx.arc( center.x, center.y, r, 0, 2*Math.PI );
@@ -42,95 +82,50 @@ const graphs = {
     ctx.stroke();
     ctx.closePath();
   },
-  
-  max: function (datos){
-    let maximo = datos[0];
-    for(let i=1;i<datos.length;i++){
-      if(datos[i]>maximo){
-        maximo = datos[i]
-      }
+  boxPlot: function (canvas,ctx,datos){
+    //Toma el canvas y encuentra el centro
+    let w = canvas.width;
+    let h = canvas.height;
+    let center = {
+      x: w/2,
+      y: h/2
     }
-    return maximo;
-  },
-  min: function (datos){
-    let minimo = datos[0];
-    for(let i=1;i<datos.length;i++){
-      if(datos[i]<minimo){
-        minimo = datos[i]
-      }
-    }
-    return minimo;
-  },
-  
-  mid: function (datos){
-    console.log(datos[0])
-    let floor = datos.sort()[Math.floor((datos.length-1)/2)];
-    let ceil = datos.sort()[Math.ceil((datos.length-1)/2)];
-    console.log('Bot ' + floor + ', Top ' + ceil);
-    return (floor+ceil)/2;
-  }
-
-function quartil(datos){
-  //Como es que se hayan los cuartiles?
-  let floor1 = datos.sort()[Math.floor((datos.length-1)/4)];
-  let ceil1 = datos.sort()[Math.ceil((datos.length-1)/4)];
-  let floor3 = datos.sort()[Math.floor((datos.length-1)*3/4)];
-  let ceil3 = datos.sort()[Math.ceil((datos.length-1)*3/4)];
-  console.log('25% ' + (floor1+ceil1)/2 + ', 75% ' + (floor3+ceil3)/2);
-  return {
-    q1: (floor1+ceil1)/2,
-    q3: (floor3+ceil3)/2,
-  }
-}
-
-function boxPlot(canvas,ctx,datos){
-  let start = new Date();
-  //Toma el canvas y encuentra el centro
-  let w = canvas.width;
-  let h = canvas.height;
-  let center = {
-    x: w/2,
-    y: h/2
-  }
-  let r = w < h ? w*3/8 : h*3/8; 
-  
-  let maximo = max(datos);
-  let minimo = min(datos);
-  let m = (h*3/4) /(minimo-maximo);
-  let b = (h*7/8) - (m * minimo);
-  
-  console.log('Min:' + minimo + ', Q1:' + quartil(datos).q1 + ', Q2:' + mid(datos) + ', Q3:' + quartil(datos).q3 + ', Max:' + maximo)
-  
-  //La caha
-  ctx.beginPath();
-  ctx.moveTo(w/4, (m * mid(datos)) + b);
-  ctx.lineTo(w*3/4, (m * mid(datos)) + b);
-  //m*q1+b - m*q2+b
-  ctx.moveTo(w/4, (m * quartil(datos).q3) + b);
-  ctx.rect(w/4, (m * quartil(datos).q3) + b, w/2, m * (quartil(datos).q1 - quartil(datos).q3));
-  ctx.moveTo(w/2, (m * quartil(datos).q3) + b);
-  ctx.lineTo(w/2, (m * maximo) + b);
-  ctx.moveTo(w/2, (m * quartil(datos).q1) + b);
-  ctx.lineTo(w/2, (m * minimo) + b);
-  
-  
-  ctx.stroke();
-  ctx.closePath();
-  
-  //Los puntos
-  /*ctx.fillStyle = 'rgba(0,100,100,.1)';
-  
-  for (let i = 0;i<datos.length;i++){
-    ctx.beginPath();
-    //Convierte coordenadas
-    // y = (h-0/min-max)x + b 
+    let r = w < h ? w*3/8 : h*3/8; 
     
-    ctx.moveTo(center.x, (m * datos[i]) + b);
-    ctx.arc(center.x, (m * datos[i]) + b, 2, 0, 2*Math.PI);
-    ctx.fill();
-      ctx.closePath();
-  }*/
-  
-  console.log(new Date() - start);
-}
+    let maximo = stats.max(datos);
+    let minimo = stats.min(datos);
+    let m = (h*3/4) /(minimo-maximo);
+    let b = (h*7/8) - (m * minimo);
+    
+    console.log('Min:' + minimo + ', Q1:' + stats.quartil(datos).q1 + ', Q2:' + stats.mid(datos) + ', Q3:' + stats.quartil(datos).q3 + ', Max:' + maximo)
+    
+    //La caha
+    ctx.beginPath();
+    ctx.moveTo(w/4, (m * stats.mid(datos)) + b);
+    ctx.lineTo(w*3/4, (m * stats.mid(datos)) + b);
+    //m*q1+b - m*q2+b
+    ctx.moveTo(w/4, (m * stats.quartil(datos).q3) + b);
+    ctx.rect(w/4, (m * stats.quartil(datos).q3) + b, w/2, m * (stats.quartil(datos).q1 - stats.quartil(datos).q3));
+    ctx.moveTo(w/2, (m * stats.quartil(datos).q3) + b);
+    ctx.lineTo(w/2, (m * maximo) + b);
+    ctx.moveTo(w/2, (m * stats.quartil(datos).q1) + b);
+    ctx.lineTo(w/2, (m * minimo) + b);
+
+    ctx.stroke();
+    ctx.closePath();
+    
+    //Los puntos
+    /*ctx.fillStyle = 'rgba(0,100,100,.1)';
+    
+    for (let i = 0;i<datos.length;i++){
+      ctx.beginPath();
+      //Convierte coordenadas
+      // y = (h-0/min-max)x + b 
+      
+      ctx.moveTo(center.x, (m * datos[i]) + b);
+      ctx.arc(center.x, (m * datos[i]) + b, 2, 0, 2*Math.PI);
+      ctx.fill();
+        ctx.closePath();
+    }*/
+  }
 }
