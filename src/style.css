@@ -53,15 +53,12 @@ h2{
   color:var(--ocre);
 }
 
-h3{
-  text-align: center;
-}
-
 footer{
 	background-color: var(--degradado);
 	padding: 5px;
 	text-align: center;
 	font-size: 15px;
+  
 }
 
 /* - - - Menús - - - */
@@ -333,5 +330,5 @@ img {
 
 .aboutLol h3 {
 	font-size: 30px;
+  text-align: center;
 }
-
