@@ -1,4 +1,4 @@
-import { filterData, searchChamp } from "./data.js";
+import { filterData, searchChamp, sortData } from "./data.js";
 import data from "./data/lol/lol.js";
 
 console.clear();
@@ -10,6 +10,7 @@ const app = {
 	currentPage: 0,
 }
 
+console.log
 
 // - - - - - - - CREACIÓN DE HTML
 
@@ -172,6 +173,11 @@ function openFilter(){
 	document.getElementById('overlay').style.display = 'block';
 }
 
+function openSearchBar(){
+  document.getElementById('popUp').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'block';
+}
+
 // - - - - - - - SETTERS
 
 function setView(value) { //Creada en HDU 2
@@ -228,10 +234,9 @@ document.getElementById('last').addEventListener("click", function () {
 	setPage(page)
 });
 
-console.log(pages(data.data,12)[6]);
-
 // - - - - - - - RUN 
 show();
+console.log(sortData(data.data,'difficulty'))
 
 /* BASES HTML */
 
