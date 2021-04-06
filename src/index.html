@@ -1,51 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>League of Legends</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>LEAGUE OF LEGENDS</h1>
-      <nav class="nav-bar">
-        <ul class="menu">
-          <li>
-            Buscar
-          </li>
-          <li>
-            Ordenar
-          </li>
-          <li>
-            Filtrar
-          </li>
-          <li>
-            Vistas 
-            <ul>
-              <li id="cuadView">Cuadricula</li>
-              <li id="cardView" >Tarjetas</li>
-            </ul>
-          </li>
-        </ul>
-    </nav>
-    </header>
-    
-    <section id="main">
-    
-    </section>
-    <section id="details">
-      <h2 id="name">Nombre</h2>
-      <div class="info"> 
-        <img id="icon" src="https://www.masterypoints.com/assets/img/lol/champion_icons/Aatrox.png" alt="">
-        <p id="desc">the Darkin Blade</p>
-      </div>
-    </section>
-    <section id="help">
-      <a>¿Necesitas ayuda?</a>
-    </section>
-    <section class="pages">
-    </section>
-    <footer></footer>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>League of Legends</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+	<header>
+		<h1>LEAGUE OF LEGENDS</h1>
+	</header>
+
+	<div class="container">
+		<aside class="nav-bar">
+			<ul class="menu-bar menu">
+				<li>
+					<abbr title="Buscar">
+						<img src="img/buscar.png" alt="">
+					</abbr>
+           <input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?" style="display: none">
+				</li>
+        <li>
+					<abbr title="Ordenar">
+						<img src="img/ordenar2.png" alt=""> 
+					</abbr>
+        </li>
+        <li>
+					<abbr id="openFilter" title="Filtrar">
+						<img src="img/filtrar.png" alt="">
+          </abbr>
+              <div class="overlay" id="overlay" style="display: none">
+              <div class="popup" id="popUp" style="display: none">
+                  <img src="img/cerrar.png" alt="" class="closeFilt" id="close">
+                  <div>
+                  <label for="Roles"></label>
+                  <select name="Roles" id="selectTag">
+                    <option value="">Rol</option>
+                    <option value="Fighter">Fighter</option>
+                    <option value="Tank">Tank</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Support">Support</option>
+                    <option value="Assassin">Assassin</option>
+                  </select>
+                  </div>
+                  <div>
+                  <label for="Dificultad"></label>
+                  <select name="Dificultad" id="selectDifficulty">
+                    <option value="">Dificultad</option>
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option>
+                    <option value="10"> 10 </option>
+                  </select>
+                  </div>
+                  <button id="filtButton">Filtrar </button>
+                </div>  
+              </div>
+            </li>
+        <li>
+          <abbr title="Vistas">
+            <img src="img/vistas.png" alt="">
+          </abbr>
+          <ul>
+            <li id="cuadView">Cuadricula</li>
+            <li id="cardView">Tarjetas</li>
+          </ul>
+        </li>
+        <li>
+          <a href="help.html"><abbr title="Ayuda"> <img src="img/ayuda.png" alt=""></abbr></a>
+        </li>
+      </ul>
+    </aside>
+		
+    <div class="content">
+      <h2>Todos los campeones</h2>
+
+			<section id="main">
+			</section>
+
+			<section id="details">
+			</section>
+
+			<section class="pages">
+				<p id="first" >Primera</p>
+				<p id="prev" ></p>
+				<p id="actual" >1</p>
+				<p id="next">2</p>
+				<p id="last" >Ultima</p>
+			</section>
+    </div>
+  </div>
+
+  <footer>
+		<p>
+			Desarrollado por: <a href="https://github.com/AndreaCarolinaT" target="_blank"> Andrea T. </a> y <a href="https://github.com/dsandovalm" target="_blank"> Diana S. </a>
+		</p>
+		<p>2021</p>
+  </footer>
+
+  <script src="main.js" type="module"></script>
+
+</body>
+
 </html>
