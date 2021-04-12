@@ -1,15 +1,13 @@
-import { filterData, searchChamp, sortData } from "./data.js";
+import { searchChamp, filterData, searchData, sortData } from "./data.js";
 import data from "./data/lol/lol.js";
-
-console.clear();
+import graphics from "./graphs.js";
 
 const app = {
-  view: 'cuad',  
+  view: 'cuad',
   currentData: data.data,
-	elementspp: 36,
-	currentPage: 0,
+  elementspp: 36,
+  currentPage: 0,
 }
-
 
 // - - - - - - - CREACIÓN DE HTML
 
@@ -21,26 +19,26 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
   container.style.display = "flex";
   container.innerHTML = "";
 
-	let pagedData = pages(app.currentData,app.elementspp);
+  let pagedData = pages(app.currentData, app.elementspp);
+
+  if(app.currentData === {}){
+    error();
+  }
 
   //Toma un set de datos y los muestra
   for (const champion in pagedData[app.currentPage]) {
     let div = document.createElement("div");
     div.setAttribute("id", champion.toLowerCase());
-    switch (app.view) {
-
-      case "cuad":
-        let image = document.createElement("img");
+    if(app.view === "cuad"){
+      let image = document.createElement("img");
         image.setAttribute("src", app.currentData[champion].img);
         image.setAttribute("class", "small-pic");
         div.setAttribute("class", "square");
         //El id es el nombre del campeón pasado totalmente a minusculas
         div.appendChild(image);
         container.appendChild(div);
-        break;
-
-      case "card":
-        div.setAttribute("class", "card");
+    } else {
+      div.setAttribute("class", "card");
         let img = document.createElement("img");
         img.setAttribute("src", app.currentData[champion].splash);
         let info = document.createElement("div");
@@ -57,10 +55,6 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
         div.appendChild(img);
         div.appendChild(info);
         container.appendChild(div);
-        break;
-
-      default:
-        break;
     }
     //Ahora a cada elemento creado (sea imagen o tarjeta) le ponemos un listener para el click
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
@@ -76,30 +70,52 @@ function details(championName) { //Creada en HDU 1
   //Tomar su información para llenar la pagina de detalles
   document.getElementById('main').style.display = 'none';
   document.getElementById('details').style.display = 'block';
-
+	document.getElementById('title').innerHTML = 'Detalles del campeón'
+  
   //PARTE 1 y 2 Info básica + Bio
 
-  document.getElementById("details").innerHTML = `
-      <h2 id="name">${champion.id}</h2>
-      <div class="info"> 
-        <img id="icon" src="${champion.img}">
-        <p id="desc">${champion.title}</p>
-      </div>
-      <div>
-        <div>
-          <p>Dificultad: ${champion.info.difficulty}</p>
-          <p>Roles: ${champion.tags[0]}</p>
-          <p>Tipo: ${champion.partype}</p>
-        </div>
-        <div>
-          <p>Ataque: ${champion.info.attack}</p>
-          <p>Defensa: ${champion.info.defense}</p>
-          <p>Magia: ${champion.info.magic}</p>
-        </div>
-      </div>
-      <img src="${champion.splash}">
+	let roles = '';
+	for(let i=0; i<champion.tags.length; i++){
+		roles += `${champion.tags[i]}, `;
+	
+	roles = roles.slice(0, -2);
 
-    <p class=""> ${champion.blurb} [Leer más]</p>`
+  document.getElementById("details").innerHTML = `
+
+
+      <h2 id="name">${champion.id}</h2>
+			<div class="info"> 
+				<div>
+					<img id="icon" src="${champion.img}" alt="">
+					<p id="desc">${champion.title}</p>
+					<p>Roles: ${roles}</p>
+          <p>Tipo: ${champion.partype}</p>
+				</div>
+				<div>
+					<canvas id="canvasInfo">
+						<p>Ataque</p>
+						<p>Defensa</p>
+						<p>Magia</p>
+						<p>Dificultad</p>
+					</canvas>
+				</div>
+			</div>
+			<p class = "note"> A = Ataque. D = Defensa. M = Magia. Barra = Dificultad</p>
+			<div class = "bio">
+				<img src = "${champion.splash}">
+				<p> ${champion.blurb} <a href = "https://euw.leagueoflegends.com/es-es/champions/${champion.name.toLowerCase().replace(' ','-').replace('.','')}/" target = "_blank">[Leer más]</a> </p>
+			</div>`
+  }
+  // CANVAS
+
+  let canvasInfo = document.getElementById('canvasInfo');
+  let ctxInfo = canvasInfo.getContext('2d');
+	canvasInfo.height = 200;
+	canvasInfo.width = 200;
+
+  graphics.poligon(canvasInfo,ctxInfo,[champion.info.attack,champion.info.defense,champion.info.magic],10,champion.info.difficulty);
+
+
 
   //PARTE 3 STATS
 
@@ -120,9 +136,16 @@ function details(championName) { //Creada en HDU 1
     stats.appendChild(line);
   }
   document.getElementById("details").appendChild(stats);
+  //Ocultar el footer!!!
 }
 
 // - - - - - - - AUX
+
+function search() {
+  let champs = searchData(data.data, document.getElementById('searchInput').value);
+  setData(champs);
+  close();
+}
 
 function filter() {
   let rol = document.getElementById('selectTag').value;
@@ -134,47 +157,55 @@ function filter() {
         difficulty: dificult,
       },
     }))
-  show();
   close();
 }
 
 function sort() {
-  show();
+  let sorted = sortData(app.currentData, document.getElementById('selectSort').value);
+  setData(sorted);
+  close();
 }
 
-function pages(dataSet, n){
-	//Esta función divide la data en arreglos de objetos de longitud n
-	//Que recibo? Data y un numero.
+function pages(dataSet, n) {
+  //Esta función divide la data en arreglos de objetos de longitud n
+  //Que recibo? Data y un numero.
 
-	let array = [];
-	let cont = 0;
+  let array = [];
+  let cont = 0;
 
-	for( const champion in dataSet ){
-		if(cont%n == 0){
-			array[Math.floor(cont/n)] = {};
-		}
-		array[Math.floor(cont/n)][champion] = dataSet[champion];
-		cont++;
-	}
-	return array;
-} 
+  for (const champion in dataSet) {
+    if (cont % n == 0) {
+      array[Math.floor(cont / n)] = {};
+    }
+    array[Math.floor(cont / n)][champion] = dataSet[champion];
+    cont++;
+  }
+  return array;
+}
+
+function error() {
+  document.getElementById('details').style.display = 'none';
+  let container = document.getElementById("main");
+  container.style.display = "flex";
+  container.innerHTML = "No se encontraron campeones";
+}
 
 
 // - - - - - - - POP UPS
 
-function close(){
-	document.getElementById('popUp').style.display = 'none';
-	document.getElementById('overlay').style.display = 'none'
-}
+// - - - - 
 
-function openFilter(){
-	document.getElementById('popUp').style.display = 'flex';
-	document.getElementById('overlay').style.display = 'block';
-}
-
-function openSearchBar(){
-  document.getElementById('popUp').style.display = 'flex';
+function open(name) {
+  //Asigna al pop up la clase active y pone visible el overlay
+  document.getElementById(`${name}PopUp`).setAttribute('class', 'active');
   document.getElementById('overlay').style.display = 'block';
+}
+
+function close() {
+  //Como busco el elemento de clase active y se la quito?
+  //document.getElementById(`${name}PopUp`).style.display = 'none';
+  document.getElementsByClassName(`active`)[0].setAttribute('class', 'popup');
+  document.getElementById('overlay').style.display = 'none';
 }
 
 // - - - - - - - SETTERS
@@ -191,53 +222,70 @@ function setPages(value) { //Creada en HDU 2
 
 function setData(data) {
   app.currentData = data;
-	app.currentPage = 0;
+  app.currentPage = 0;
   show();
 }
 
-function setPage(n){
-	app.currentPage = n;
+function setPage(n) {
+  app.currentPage = n;
 
-	document.getElementById('prev').innerHTML = (n == 0 ? '' : n);
-	document.getElementById('actual').innerHTML = n+1;
-	document.getElementById('next').innerHTML = (n == pages(app.currentData, app.elementspp).length - 1 ? '' : n+2);
+  document.getElementById('prev').innerHTML = (n == 0 ? '' : n);
+  document.getElementById('actual').innerHTML = n + 1;
+  document.getElementById('next').innerHTML = (n == pages(app.currentData, app.elementspp).length - 1 ? '' : n + 2);
 
-	show();
-} 
+  show();
+}
 
 //Como hacemos el control de las páginas?
 
 // - - - - - - - LISTENERS
 
-document.getElementById("cuadView").addEventListener("click", function () { setView('cuad'); setPages(36) }); //Creada en HDU 2
-document.getElementById("cardView").addEventListener("click", function () { setView('card'); setPages(12) }); //Creada en HDU 3
+// Para Abrir y cerrar popUps
 
-document.getElementById('filtButton').addEventListener("click", filter);
-document.getElementById('close').addEventListener("click", close);
-document.getElementById('openFilter').addEventListener("click", openFilter);
+document.getElementById('openFilter').addEventListener("click", function () { open('filter') });
+document.getElementById('openSearch').addEventListener("click", function () { open('search') });
+document.getElementById('openSort').addEventListener("click", function () { open('sort') });
+document.getElementById('openView').addEventListener("click", function () { open('view') });
+
+let closeButtons = document.getElementsByClassName("close");
+for (let i = 0; i < closeButtons.length; i++) {
+  closeButtons[i].addEventListener('click', close);
+}
+
+// Para Cambios de Vistas
+document.getElementById("cuadView").addEventListener("click", function () { setView('cuad'); setPages(36); close() }); //Creada en HDU 2
+document.getElementById("cardView").addEventListener("click", function () { setView('card'); setPages(12); close()  }); //Creada en HDU 3
+
+//Para cambiar de pagina
 
 document.getElementById('first').addEventListener("click", function () { setPage(0) });
 
-document.getElementById('prev').addEventListener("click", function () { 
-	let page = app.currentPage == 0 ? 0 : app.currentPage - 1 ;
-	setPage(page)
+document.getElementById('prev').addEventListener("click", function () {
+  let page = app.currentPage == 0 ? 0 : app.currentPage - 1;
+  setPage(page)
 });
 
-document.getElementById('next').addEventListener("click", function () { 
-	let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1  ? app.currentPage : app.currentPage + 1 ;
-	setPage(page)
+document.getElementById('next').addEventListener("click", function () {
+  let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1 ? app.currentPage : app.currentPage + 1;
+  setPage(page)
 });
 
-document.getElementById('last').addEventListener("click", function () { 
-	let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1  ? app.currentPage : pages(app.currentData, app.elementspp).length - 1 ;
-	setPage(page)
+document.getElementById('last').addEventListener("click", function () {
+  let page = app.currentPage == pages(app.currentData, app.elementspp).length - 1 ? app.currentPage : pages(app.currentData, app.elementspp).length - 1;
+  setPage(page)
 });
 
-console.log(pages(data.data,12)[6]);
+// Para llamar funciones
+
+document.getElementById('filtButton').addEventListener("click", filter);
+document.getElementById('searchBtn').addEventListener("click", search);
+document.getElementById('sortBtn').addEventListener("click", sort);
+
 
 // - - - - - - - RUN 
+
 show();
-console.log(sortData(dataSet,'difficulty'))
+
 
 /* BASES HTML */
 
@@ -255,6 +303,24 @@ console.log(sortData(dataSet,'difficulty'))
             </div> */
 
 /* DETAILS
+
+<div class="info"> 
+	<div>
+		<img id="icon" src="https://www.masterypoints.com/assets/img/lol/champion_icons/Aatrox.png" alt="">
+		<p id="desc">the Darkin Blade</p>
+		<p>Roles</p>
+		<p>Tipo</p>
+	</div>
+	<canvas>
+          <p>Ataque</p>
+          <p>Defensa</p>
+          <p>Magia</p>
+					<p>Dificultad</p>
+  </canvas>
+</div>
+
+
+
   <h2 id="name">Nombre</h2>
       <div class="info"> 
         <img id="icon" src="https://www.masterypoints.com/assets/img/lol/champion_icons/Aatrox.png" alt="">
