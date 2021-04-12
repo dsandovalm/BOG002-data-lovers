@@ -60,7 +60,7 @@ export const searchData = (dataSet, keywords) => {
 						break;
 					default:
 						if(typeof(dataSet[champion][keys]) === "string"){
-							valid = valid || (dataSet[champion][keys].toLowerCase() === condition[keys]);
+							valid = valid || (dataSet[champion][keys].toLowerCase() === k);
 						}
 						
 						break;
@@ -185,4 +185,4 @@ function checkAttribute(key){
 	let type = ( validNum.indexOf(key) == -1 ? ( validStr.indexOf(key) == -1 ? 'invalid' : 'str' ) : 'num' );
 
 	return type;
-}
+} 
