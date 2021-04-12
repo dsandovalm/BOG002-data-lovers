@@ -53,7 +53,7 @@ export const searchData = (dataSet, keywords) => {
 						break;
 					case 'info':
 						for( const info in condition[keys] ){
-							valid = valid || (dataSet[champion][keys][info].toLowerCase() == condition[keys][info]);
+							valid = valid || (dataSet[champion][keys][info] === condition[keys][info]);
 						}
 						break;
 					case 'title':
@@ -110,7 +110,7 @@ export const sortData = (dataSet,criteria) => {
 		case 'num':
 			//CASE 1: num. Sort númerico
 			//Contar cuantos campeones tiene el set
-			for(let i=0; i<dataSet.values().length;i++){
+			for(let i=0; i< Object.values(dataSet).length;i++){
 				if (criteria == 'attack' || criteria == 'defense'|| criteria == 'magic' || criteria == 	'difficulty') {
 					let current = searchFirst(base,'info',criteria);
 					sorted[current.id] = current;
