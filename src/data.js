@@ -1,7 +1,3 @@
-export const searchChamp = (dataSet,champName) => {
-	return dataSet[champName];
-}
-
 export const filterData = (dataSet,condition) => {
   //Data es un objeto. Los campeones son los atributos de este objeto
   //Condition es un objeto con las condiciones que deben cumplirse
@@ -141,7 +137,7 @@ export const sortData = (dataSet,criteria) => {
 			//ahora hay que recorrer el array
 			for(let i = 0; i< array.length;i++){
 				let championName = array[i].split(',')[1];
-				sorted[championName] = searchChamp(dataSet,championName);
+				sorted[championName] = dataSet[championName];
 			}
 			break;
 		}
@@ -186,7 +182,7 @@ function checkAttribute(key){
 		'partype',
 	];
 
-	let type = (validNum.indexOf(key) == -1 ? (validStr.indexOf(key) == -1 ? 'invalid' : 'str') : 'num' );
+	let type = ( validNum.indexOf(key) == -1 ? ( validStr.indexOf(key) == -1 ? 'invalid' : 'str' ) : 'num' );
 
 	return type;
 }
