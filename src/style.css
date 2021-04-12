@@ -4,13 +4,13 @@
 
 :root{
     --fondo: #03101D;
-    --transparente: #030f1cbf;
+    --transparente: #03101Dbf;
     --degradado: #0C2F3B;
     --azul: #072D53;
     --celeste: #31CED7;
     --claro: #D6FAF9;
-    --crema: #E1D6AC;
-    --ocre: #A79966;
+    --crema: #e1d6ac;
+    --ocre: #a79966;
 }
 
 * {
@@ -20,7 +20,7 @@
 }
 
 body{
-    background: linear-gradient(175deg, var(--fondo) 60%, var(--degradado)80%);
+    background: linear-gradient(175deg, var(--fondo) 50%, var(--degradado)65%);
 		color:var(--crema);
 		background-attachment: fixed;
     font-family: "Rubik", sans-serif;
@@ -55,7 +55,7 @@ h2{
 
 footer{
 	background-color: var(--degradado);
-	padding: 5px;
+	padding: 20px;
 	text-align: center;
 	font-size: 15px;
   
@@ -113,38 +113,7 @@ aside li:hover{
     display: block;
 }
 
-.overlay {
-  background: rgba(0,0,0,.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.popup {
-  display: flex;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-  background-color: #E1D6AC;
-  width: 330px;
-  height: 170px;
-  margin-left: 12px;
-  border-radius: 15px;
-  align-items: center;
-  z-index: 100px;
-  padding: 15px;
-	position: relative;
-  justify-content:right;
-  /* display: none; */
-}
-
-.closeFilt {
- margin-top: 0px;
- margin-right: 0px;
-}
 
 div select {
  width: 100px;
@@ -167,7 +136,7 @@ div select {
 
 a{
 	color: var(--crema);
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 .container {
@@ -214,6 +183,61 @@ img {
     padding: 6px;
 }
 
+/* - - - Pop up - - - */
+
+.overlay {
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: middle;
+  justify-content: center;
+}
+
+.popup {
+  display: none;
+}
+
+.active {
+	display: flex;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  background-color: #E1D6AC;
+	color: var(--fondo);
+  width: 330px;
+  height: 170px;
+  border-radius: 15px;
+  align-items: center;
+  z-index: 100px;
+  padding: 15px;
+	justify-content:right;
+	position: absolute;
+	left: calc(50vw - 165px);
+}
+
+.info{
+	display: flex;
+	align-items: center;
+	justify-content:space-around;
+}
+
+.info div {
+	width: 50%;
+	padding: 5px;
+}
+
+#canvasInfo{
+	width:100%;
+	max-width: 200px;
+}
+.note{
+	color:var(--ocre);
+	font-size: 12px;
+	text-align: right;
+	margin-bottom: 10px;
+}
 /* - - - STATS - - - */
 
 .stats {
@@ -255,59 +279,6 @@ img {
     }
 } */
 
-@media (min-width: 720px) and (orientation: landscape) { 
-
-	.container {
-		width: 100%;
-		display: flex;
-	}
-	
-	.line{
-		width: 50%;
-	}
-
-	/* - - - MENU - - - */
-
-	aside {
-		padding: 20px 10px;
-		max-width: 240px;		
-		flex: 0 0 auto;
-		display: block;
-	}
-
-	.texto{
-		display: inline-block;
-	}
-
-	.content {
-		flex:auto;
-		z-index: 1;
-	}
-
-		section {
-    width: 100%;
-		max-width: 900px;
-	}
-
-  .main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-		
-
-    .square{
-        width: calc(100%/9);
-        height: auto;   
-    }
-
-    .card{
-        width:25%;
-    }
-}
-
 /* - - - Help - - - */
 #return {
   height: 36px;
@@ -331,4 +302,72 @@ img {
 .aboutLol h3 {
 	font-size: 30px;
   text-align: center;
+}
+
+/* desktop */
+
+@media (min-width: 720px) and (orientation: landscape) { 
+
+	.container {
+		width: 100%;
+		display: flex;
+	}
+	
+	.line{
+		width: 50%;
+	}
+
+	/* - - - MENU - - - */
+
+	.texto{
+		display: inline-block;
+	}
+
+	.content {
+		flex:auto;
+	}
+
+		section {
+    width: 100%;
+		max-width: 900px;
+	}
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+	.details{
+		padding: 0 20px;
+	}
+
+	.info{
+		text-align: center;
+	}
+		
+	.bio{
+		display: flex;
+		align-items: center;
+	}
+	.bio img, .bio p {
+		width:50%;
+		padding: 5px;
+	}
+
+    .square{
+        width: calc(100%/9);
+        height: auto;   
+    }
+
+    .card{
+        width:25%;
+    }
+
+		.menu li ul{
+		right:-38px;
+		background-color: var(--fondo);
+	}
 }
