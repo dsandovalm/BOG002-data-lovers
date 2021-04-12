@@ -52,8 +52,8 @@ export const searchData = (dataSet, keywords) => {
 						valid = valid || ( dataSet[champion][keys].indexOf(k) != -1)
 						break;
 					case 'info':
-						for( const info in condition[keys] ){
-							valid = valid || (dataSet[champion][keys][info] === condition[keys][info]);
+						for( const info in dataSet[champion][keys] ){
+							valid = valid || (dataSet[champion][keys][info] === k);
 						}
 						break;
 					case 'title':
@@ -189,4 +189,4 @@ function checkAttribute(key){
 	let type = (validNum.indexOf(key) == -1 ? (validStr.indexOf(key) == -1 ? 'invalid' : 'str') : 'num' );
 
 	return type;
-} //192 lineas 605 palabras 5019 caracteres
+}
