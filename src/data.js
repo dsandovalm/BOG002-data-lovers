@@ -1,4 +1,4 @@
-export const searchChamp = (champName,dataSet) => {
+export const searchChamp = (dataSet,champName) => {
 	return dataSet[champName];
 }
 
@@ -141,7 +141,7 @@ export const sortData = (dataSet,criteria) => {
 			//ahora hay que recorrer el array
 			for(let i = 0; i< array.length;i++){
 				let championName = array[i].split(',')[1];
-				sorted[championName] = searchChamp(championName);
+				sorted[championName] = searchChamp(dataSet,championName);
 			}
 			break;
 		}
@@ -189,4 +189,4 @@ function checkAttribute(key){
 	let type = (validNum.indexOf(key) == -1 ? (validStr.indexOf(key) == -1 ? 'invalid' : 'str') : 'num' );
 
 	return type;
-}
+} //192 lineas 605 palabras 5019 caracteres
