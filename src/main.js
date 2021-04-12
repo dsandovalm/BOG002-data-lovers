@@ -1,4 +1,4 @@
-import { searchChamp, filterData, searchData, sortData } from "./data.js";
+import {filterData, searchData, sortData } from "./data.js";
 import data from "./data/lol/lol.js";
 import graphics from "./graphs.js";
 
@@ -66,7 +66,7 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
 
 function details(championName) { //Creada en HDU 1
   //Recibir el campeon
-  let champion = searchChamp(championName, data.data);
+  let champion = data.data[championName];
   //Tomar su información para llenar la pagina de detalles
   document.getElementById('main').style.display = 'none';
   document.getElementById('details').style.display = 'block';
