@@ -10,6 +10,8 @@
 
 <body>
 
+	<div class="overlay" id="overlay" style="display:none"></div>
+
 	<header>
 		<h1>LEAGUE OF LEGENDS</h1>
 	</header>
@@ -18,58 +20,78 @@
 		<aside class="nav-bar">
 			<ul class="menu-bar menu">
 				<li>
-					<abbr title="Buscar">
+					<abbr id="openSearch" title="Buscar">
 						<img src="img/buscar.png" alt="">
 					</abbr>
-           <input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?" style="display: none">
+          
+            <div class="popup" id="searchPopUp">
+              <img src="img/cerrar.png" alt="" class="close">
+           		<input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?">
+           		<button id="searchBtn">Buscar</button>
+          </div>
 				</li>
         <li>
-					<abbr title="Ordenar">
+					<abbr id="openSort" title="Ordenar">
 						<img src="img/ordenar2.png" alt=""> 
 					</abbr>
+						<div class="popup" id="sortPopUp">
+           	<div class="up">
+              <img src="img/cerrar.png" alt="" class="close">
+            </div>
+            <label for="sorter">Ordenar por</label>
+            <select name="sorter" id="selectSort">
+            	<option value="">Seleccione un criterio</option>
+							<option value="id"> Nombre </option>
+							<option value="tags"> Rol Principal </option>
+							<option value="difficulty"> Dificultad </option>
+							<option value="attack"> Ataque </option>
+							<option value="defense"> Defensa </option>
+							<option value="magic"> Magia </option>
+            </select>                                
+            <button id="sortBtn">Ordenar</button>
+          </div>
         </li>
         <li>
 					<abbr id="openFilter" title="Filtrar">
 						<img src="img/filtrar.png" alt="">
           </abbr>
-              <div class="overlay" id="overlay" style="display: none">
-              <div class="popup" id="popUp" style="display: none">
-                  <img src="img/cerrar.png" alt="" class="closeFilt" id="close">
-                  <div>
-                  <label for="Roles"></label>
-                  <select name="Roles" id="selectTag">
-                    <option value="">Rol</option>
-                    <option value="Fighter">Fighter</option>
-                    <option value="Tank">Tank</option>
-                    <option value="Mage">Mage</option>
-                    <option value="Support">Support</option>
-                    <option value="Assassin">Assassin</option>
-                  </select>
-                  </div>
-                  <div>
-                  <label for="Dificultad"></label>
-                  <select name="Dificultad" id="selectDifficulty">
-                    <option value="">Dificultad</option>
-                    <option value="1"> 1 </option>
-                    <option value="2"> 2 </option>
-                    <option value="3"> 3 </option>
-                    <option value="4"> 4 </option>
-                    <option value="5"> 5 </option>
-                    <option value="10"> 10 </option>
-                  </select>
-                  </div>
-                  <button id="filtButton">Filtrar </button>
-                </div>  
+            <div class="popup" id="filterPopUp">
+              <img src="img/cerrar.png" alt="" class="close">
+              <div>
+                <label for="Roles"></label>
+                <select name="Roles" id="selectTag">
+                  <option value="">Rol</option>
+                  <option value="Fighter">Luchador</option>
+                  <option value="Tank">Tanque</option>
+                  <option value="Mage">Mago</option>
+                  <option value="Support">Soporte</option>
+                  <option value="Assassin">Asesino</option>
+                </select>                
+							</div>
+              <div>
+                <label for="Dificultad"></label>
+                <select name="Dificultad" id="selectDifficulty">
+                  <option value="">Dificultad</option>
+                  <option value="1"> 1 </option>
+                  <option value="2"> 2 </option>
+                  <option value="3"> 3 </option>
+									<option value="4"> 4 </option>
+                  <option value="5"> 5 </option>
+                  <option value="10"> 10 </option>
+                </select>
               </div>
-            </li>
+              <button id="filtButton">Filtrar </button>
+            </div>  
+        </li>
         <li>
-          <abbr title="Vistas">
+          <abbr id="openView" title="Vistas">
             <img src="img/vistas.png" alt="">
           </abbr>
-          <ul>
-            <li id="cuadView">Cuadricula</li>
-            <li id="cardView">Tarjetas</li>
-          </ul>
+					<div class="popup" id="viewPopUp">
+						<img src="img/cerrar.png" alt="" class="close">
+						<button id="cuadView">Cuadricula</button>
+						<button id="cardView">Tarjetas</button>
+						</div>
         </li>
         <li>
           <a href="help.html"><abbr title="Ayuda"> <img src="img/ayuda.png" alt=""></abbr></a>
@@ -78,12 +100,15 @@
     </aside>
 		
     <div class="content">
-      <h2>Todos los campeones</h2>
+      <h2 id="title">Todos los campeones</h2>
 
 			<section id="main">
 			</section>
 
 			<section id="details">
+        <a href="index.html" id="return">
+					<img src="img/return.png" alt="">
+				</a>
 			</section>
 
 			<section class="pages">
