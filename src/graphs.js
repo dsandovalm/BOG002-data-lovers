@@ -16,13 +16,6 @@ const graphics = {
     let r = w < h ? w*3/8 : h*3/8; 
     let gap = r/maximo;
 
-    ctx.beginPath();
-    ctx.arc( center.x, center.y, r, 0, 2*Math.PI );
-		ctx.moveTo(center.x + (r*8/7) , center.y )
-    ctx.arc( center.x, center.y, r*8/7, 0, 2*Math.PI );
-    ctx.stroke();
-    ctx.closePath();
-
     //Las lineas
     ctx.beginPath();
     for (let i = 0;i<datos.length;i++){
@@ -66,6 +59,13 @@ const graphics = {
 		ctx.fillStyle = '#31CED7';
 		ctx.fill();
 		ctx.closePath();
+    
+    ctx.beginPath();
+    ctx.arc( center.x, center.y, r, 0, 2*Math.PI );
+		ctx.moveTo(center.x + (r*8/7) , center.y )
+    ctx.arc( center.x, center.y, r*8/7, 0, 2*Math.PI );
+    ctx.stroke();
+    ctx.closePath();
 
   },
 
