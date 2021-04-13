@@ -156,6 +156,7 @@ function details(championName) { //Creada en HDU 1
 function back(){
 	document.getElementById('title').innerHTML = 'Todos los campeones';
 	setData(data.data);
+	setPage(0);
 	document.getElementById('return').style.display = 'none';
 }
 
@@ -163,6 +164,7 @@ function search() {
 		document.getElementById('title').innerHTML = 'Resultados de la búsqueda';
   let champs = searchData(data.data, document.getElementById('searchInput').value);
   setData(champs);
+	setPage(0);
   close();
 }
 
@@ -178,6 +180,7 @@ function filter() {
         difficulty: dificult,
       },
     }))
+		setPage(0);
   close();
 }
 
@@ -186,6 +189,7 @@ function sort() {
 	let reverse = document.getElementById('reverse').value === 'des' ? true : false;
   let sorted = sortData( app.currentData, document.getElementById( 'selectSort' ).value, reverse );
   setData(sorted);
+	setPage(0);
   close();
 }
 
