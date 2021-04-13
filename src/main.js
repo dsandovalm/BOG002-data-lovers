@@ -147,6 +147,7 @@ function details(championName) { //Creada en HDU 1
     line.appendChild(rigth);
     stats.appendChild(line);
   }
+  document.getElementById("details").appendChild(document.createElement('h3').appendChild(document.createTextNode('Stats')));
   document.getElementById("details").appendChild(stats);
   //Ocultar el footer!!!
 }
