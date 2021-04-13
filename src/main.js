@@ -61,7 +61,7 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
     document.getElementById(champion.toLowerCase()).addEventListener("click", function () { details(champion) });
   }
   //console.log(app.currentData)
-  if(app.currentData === {  }){
+  if(Object.values(app.currentData).length === 0){
     error();
   } else if(app.currentData === data.data) {
 		document.getElementById('all').style.display = 'none';
