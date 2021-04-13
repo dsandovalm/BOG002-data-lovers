@@ -9,127 +9,88 @@
 </head>
 
 <body>
-
-	<div class="overlay" id="overlay" style="display:none"></div>
-
 	<header>
 		<h1>LEAGUE OF LEGENDS</h1>
 	</header>
 
-	<div class="container">
-		<aside class="nav-bar">
-			<ul class="menu-bar menu">
-				<li>
-					<abbr id="openSearch" title="Buscar">
-						<img src="img/buscar.png" alt="">
-					</abbr>
-          
-            <div class="popup" id="searchPopUp">
-              <img src="img/cerrar.png" alt="" class="close">
-           		<input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?">
-           		<button id="searchBtn">Buscar</button>
-          </div>
-				</li>
-        <li>
-					<abbr id="openSort" title="Ordenar">
-						<img src="img/ordenar2.png" alt=""> 
-					</abbr>
-						<div class="popup" id="sortPopUp">
-           	<div class="up">
-              <img src="img/cerrar.png" alt="" class="close">
-            </div>
-            <label for="sorter">Ordenar por</label>
-            <select name="sorter" id="selectSort">
-            	<option value="">Seleccione un criterio</option>
-							<option value="id"> Nombre </option>
-							<option value="tags"> Rol Principal </option>
-							<option value="difficulty"> Dificultad </option>
-							<option value="attack"> Ataque </option>
-							<option value="defense"> Defensa </option>
-							<option value="magic"> Magia </option>
-            </select>                                
-            <button id="sortBtn">Ordenar</button>
-          </div>
-        </li>
-        <li>
-					<abbr id="openFilter" title="Filtrar">
-						<img src="img/filtrar.png" alt="">
-          </abbr>
-            <div class="popup" id="filterPopUp">
-              <img src="img/cerrar.png" alt="" class="close">
-              <div>
-                <label for="Roles"></label>
-                <select name="Roles" id="selectTag">
-                  <option value="">Rol</option>
-                  <option value="Fighter">Luchador</option>
-                  <option value="Tank">Tanque</option>
-                  <option value="Mage">Mago</option>
-                  <option value="Support">Soporte</option>
-                  <option value="Assassin">Asesino</option>
-                </select>                
-							</div>
-              <div>
-                <label for="Dificultad"></label>
-                <select name="Dificultad" id="selectDifficulty">
-                  <option value="">Dificultad</option>
-                  <option value="1"> 1 </option>
-                  <option value="2"> 2 </option>
-                  <option value="3"> 3 </option>
-									<option value="4"> 4 </option>
-                  <option value="5"> 5 </option>
-                  <option value="10"> 10 </option>
-                </select>
-              </div>
-              <button id="filtButton">Filtrar </button>
-            </div>  
-        </li>
-        <li>
-          <abbr id="openView" title="Vistas">
-            <img src="img/vistas.png" alt="">
-          </abbr>
-					<div class="popup" id="viewPopUp">
-						<img src="img/cerrar.png" alt="" class="close">
-						<button id="cuadView">Cuadricula</button>
-						<button id="cardView">Tarjetas</button>
-						</div>
-        </li>
-        <li>
-          <a href="help.html"><abbr title="Ayuda"> <img src="img/ayuda.png" alt=""></abbr></a>
-        </li>
-      </ul>
-    </aside>
-		
-    <div class="content">
-      <h2 id="title">Todos los campeones</h2>
-
-			<section id="main">
-			</section>
-
-			<section id="details">
-        <a href="index.html" id="return">
+	  <div>
+		<div id="return">
+				<a href="index.html" id="return">
 					<img src="img/return.png" alt="">
 				</a>
-			</section>
-
-			<section class="pages">
-				<p id="first" >Primera</p>
-				<p id="prev" ></p>
-				<p id="actual" >1</p>
-				<p id="next">2</p>
-				<p id="last" >Ultima</p>
-			</section>
+        </div>
+    
+        <h2>Sobre el juego</h2>
+        <div class = "aboutLol">
+            <h3>¿De qué trata?</h3>
+            <p> League of Legends es un juego de estrategia por equipos en el que dos equipos de cinco campeones se enfrentan para ver quién destruye antes la base del otro. Elige de entre un elenco de 140 campeones para realizar jugadas épicas, asesinar rivales y derribar torretas para alzarte con la victoria.</p>
+            <br>
+            <hr>
+            <br>
+            <h3>¿Cómo se juega?</h3>
+            <br>
+            <br>
+            <h3>Objetivo</h3>
+            <br>
+            <h3>Destruye la base</h3>
+            <p style="text-align: center">El nexo es el corazón de las bases de los equipos. Para ganar la partida, hay que destruir el nexo enemigo.</p><br>
+            <div>
+                <h3 style="text-align: justify"> 1. Tu Nexo </h3>
+                <p>Los súbditos se generan en tu nexo. Detrás del nexo se encuentra la fuente, donde podrás recuperar vida y maná con rapidez y acceder a la tienda.</p><br>
+                <h3 style="text-align: justify">2. Tu Nexo Enemigo</h3>
+                <p>El nexo enemigo, que se encuentra en la base del equipo contrario, es igual que el de tu equipo. Si acabas con él, ganarás la partida.</p>
+            </div>
+              <br>
+              <hr>
+              <br>
+              <br>
+             <h3>Estructuras</h3><br>
+             <h3>Ábrete paso</h3>
+                <p>Para llegar hasta el nexo enemigo, tu equipo tendrá que avanzar por al menos una calle. Hay estructuras defensivas que bloquean tu avance: las torretas y los inhibidores. Cada calle cuenta con tres torretas y un inhibidor. Además,cada nexo tiene dos torretas adicionales.</p><br>
+              <h3 style="text-align: justify"> 1. Torretas </h3>
+                <p>Las torretas infligen daño a los súbditos y campeones enemigos, y ofrecen a su equipo un campo de visión limitado a través de la niebla de guerra. Ataca a estas estructuras con un grupo de súbditos delante, para que no te ataquen a ti, y sigue avanzando.</p><br>
+              <h3 style="text-align: justify"> 2. Inhibidores </h3>
+                <p>Todos los inhibidores están protegidos por una torreta. Destruirlos hará que aparezcan supersúbditos de tu equipo en esa calle durante varios minutos. Después de un tiempo, el inhibidor volverá a aparecer y se dejarán de generar supersúbditos.</p>
+                <br>
+                <hr>
+                <br>
+                <br>
+              <h3>Mounstros Neutrales</h3>
+                <br>
+              <h3>A la conquista de la jungla</h3>
+                <p>Entre las calles se encuentra la jungla, en la que habitan monstruos neutrales y plantas mágicas. Los dos tipos de monstruos más importantes son el Barón Nashor y los dragones. Acabar con estas unidades otorgará a tu equipo mejoras únicas y, en ocasiones, te ayudará a darle la vuelta a la partida.</p><br>
+              <h3 style="text-align: justify"> 1. Barón Nashor </h3>    
+                <p>El Barón Nashor es el monstruo más poderoso de toda la jungla. Asesinar al Barón otorga a tu equipo daño de ataque y poder de habilidad adicionales, una versión mejorada de Retirada y potencia significativamente a los súbditos que se encuentren cerca de un campeón con la mejora activa.</p><br>
+              <h3 style="text-align: justify"> 2. Dragones </h3>
+                <p>Los dragones son monstruos muy poderosos que otorgan mejoras únicas en función del elemento al que pertenezcan. Hay cuatro dragones elementales y un Dragón anciano.</p>
+                <br>
+                <hr>
+                <br>
+                <br>
+              <h3>Posiciones de las calles</h3>
+                <br>
+              <h3>Elige una calle</h3>
+                <p>La composición de equipo más recomendada está integrada por cinco posiciones diferentes. Las características de cada una de las calles favorecen a ciertos tipos de campeones y roles. ¡Pruébalas todas o elige la que más te guste!</p><br>
+              <h3 style="text-align: justify"> 1. Calle Superior </h3>    
+                <p>Los campeones de la calle superior son los luchadores solitarios por excelencia. Su trabajo es proteger su calle y centrarse en eliminar a las mayores amenazas del equipo enemigo.</p><br>
+              <h3 style="text-align: justify"> 2. Jungla </h3>
+                <p>Los junglas dedican su partida a la caza. Se sirven de su destreza y sigilo para saltar de una calle a otra, se encargan de vigilar los monstruos neutrales más importantes y atacan en el momento preciso cuando un enemigo baja la guardia.</p><br>
+              <h3 style="text-align: justify"> 3. Calle Central </h3>
+                <p>Los campeones de la calle central cuentan con un gran daño explosivo y funcionan muy bien tanto de forma independiente como en equipo. Para ellos, el combate es una peligrosa danza que consiste en encontrar el momento idóneo para acabar con su rival.</p><br>  
+              <h3 style="text-align: justify"> 4. Calle Inferior </h3>
+                <p>Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.</p><br>
+              <h3 style="text-align: justify"> 5. Apoyo </h3>
+                <p>Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.</p>  
+              
+        </div>
     </div>
-  </div>
+	</div>
 
-  <footer>
-		<p>
-			Desarrollado por: <a href="https://github.com/AndreaCarolinaT" target="_blank"> Andrea T. </a> y <a href="https://github.com/dsandovalm" target="_blank"> Diana S. </a>
-		</p>
-		<p>2021</p>
-  </footer>
+    <footer>
+      <p> Desarrollado por: <a href="https://github.com/AndreaCarolinaT" target="_blank"> Andrea T. </a> y <a href="https://github.com/dsandovalm" target="_blank"> Diana S. </a> </p>
+      <p> 2021 </p>
+    </footer>
 
-  <script src="main.js" type="module"></script>
-
-</body>
-
+    <script src="main.js" type="module"> </script>
+  </body>
 </html>
