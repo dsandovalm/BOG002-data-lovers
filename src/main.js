@@ -14,16 +14,24 @@ const app = {
 // Vistas generales
 
 function show() { //Creada en HDU 1. Modificada en HDU 3
+
   document.getElementById('details').style.display = 'none';
+	document.getElementById('return').style.display = 'none';
+	document.getElementById('pages').style.display = 'flex';
   let container = document.getElementById("main");
   container.style.display = "flex";
+	document.getElementById('title').style.display = 'block';
   container.innerHTML = "";
 
   let pagedData = pages(app.currentData, app.elementspp);
 
   if(app.currentData === {}){
     error();
-  }
+  } else if(app.currentData === data.data) {
+		document.getElementById('all').style.display = 'none';
+	} else {
+		document.getElementById('all').style.display = 'block';
+	}
 
   //Toma un set de datos y los muestra
   for (const champion in pagedData[app.currentPage]) {
@@ -69,8 +77,12 @@ function details(championName) { //Creada en HDU 1
   let champion = data.data[championName];
   //Tomar su información para llenar la pagina de detalles
   document.getElementById('main').style.display = 'none';
+	document.getElementById('pages').style.display = 'none';
+	document.getElementById('all').style.display = 'none';
   document.getElementById('details').style.display = 'block';
-	document.getElementById('title').innerHTML = 'Detalles del campeón'
+	document.getElementById('return').style.display = 'block';
+	document.getElementById('title').style.display = 'none';
+
   
   //PARTE 1 y 2 Info básica + Bio
 
@@ -141,15 +153,24 @@ function details(championName) { //Creada en HDU 1
 
 // - - - - - - - AUX
 
+function back(){
+	document.getElementById('title').innerHTML = 'Todos los campeones';
+	setData(data.data);
+	document.getElementById('return').style.display = 'none';
+}
+
 function search() {
+		document.getElementById('title').innerHTML = 'Resultados de la búsqueda';
   let champs = searchData(data.data, document.getElementById('searchInput').value);
   setData(champs);
   close();
 }
 
 function filter() {
+	document.getElementById('title').innerHTML = 'Campeones filtrados';
   let rol = document.getElementById('selectTag').value;
   let dificult = document.getElementById('selectDifficulty').value;
+
   setData(filterData(data.data,
     {
       tags: rol,
@@ -161,7 +182,9 @@ function filter() {
 }
 
 function sort() {
-  let sorted = sortData(app.currentData, document.getElementById('selectSort').value);
+	document.getElementById('title').innerHTML = 'Campeones ordenados';
+	let reverse = document.getElementById('reverse').value === 'des' ? true : false;
+  let sorted = sortData( app.currentData, document.getElementById( 'selectSort' ).value, reverse );
   setData(sorted);
   close();
 }
@@ -280,12 +303,12 @@ document.getElementById('last').addEventListener("click", function () {
 document.getElementById('filtButton').addEventListener("click", filter);
 document.getElementById('searchBtn').addEventListener("click", search);
 document.getElementById('sortBtn').addEventListener("click", sort);
-
+document.getElementById('return').addEventListener("click", show);
+document.getElementById('all').addEventListener("click", back);
 
 // - - - - - - - RUN 
 
 show();
-
 
 /* BASES HTML */
 
