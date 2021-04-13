@@ -1,5 +1,8 @@
 # Data Lovers
 
+En este proyecto elaboramos una pagina que muestra información tomada de un archivo con objetos javaScript, en este caso de los campeones de League of Legends, un juego multijugador online de tipo MOBA.
+Esta web muestra información resumida y detallada de los campeones, da la opción de filtrarlos por dificultad y/o rol, ordenar selecciones en orden Alfbético, por Dificultad, por otros parametros como Ataque, Defensa o Magia, o por Rol y buscar campeones utilizando palabras clave.  
+
 [Web](https://dsandovalm.github.io/BOG002-data-lovers/src/index.html)
 
 ## Decisiones de diseño
