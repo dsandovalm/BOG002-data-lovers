@@ -60,7 +60,7 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
     document.getElementById(champion.toLowerCase()).addEventListener("click", function () { details(champion) });
   }
-  console.log(Object.values(app.currentData).length)
+  
   if(Object.values(app.currentData).length === 0){
     error();
   } else if(app.currentData === data.data) {
