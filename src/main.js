@@ -25,14 +25,6 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
 
   let pagedData = pages(app.currentData, app.elementspp);
 
-  if(app.currentData === {}){
-    error();
-  } else if(app.currentData === data.data) {
-		document.getElementById('all').style.display = 'none';
-	} else {
-		document.getElementById('all').style.display = 'block';
-	}
-
   //Toma un set de datos y los muestra
   for (const champion in pagedData[app.currentPage]) {
     let div = document.createElement("div");
@@ -68,6 +60,13 @@ function show() { //Creada en HDU 1. Modificada en HDU 3
     //Se crea una función para poder pasarle parametros a otra ya creada, este caso details
     document.getElementById(champion.toLowerCase()).addEventListener("click", function () { details(champion) });
   }
+  if(app.currentData === {}){
+    error();
+  } else if(app.currentData === data.data) {
+		document.getElementById('all').style.display = 'none';
+	} else {
+		document.getElementById('all').style.display = 'block';
+	}
 }
 
 // Vistas detalladas
