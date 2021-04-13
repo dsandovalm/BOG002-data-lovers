@@ -117,21 +117,14 @@ aside li:hover{
 
 div select {
  width: 100px;
- height: 30px;
+ /*height: 30px;
+ margin-top: 70px;*/
  text-align: center;
- margin-top: 70px;
+ 
  border-radius: 10px;
  background-color: var(--ocre);
  justify-content: space-between;
  display: flex;
-}
-
-#filtButton {
- height: 30px;
- margin-top: 120px;
- margin-right: 30px;
- border-radius: 5px;
- text-align: center;
 }
 
 a{
@@ -201,20 +194,46 @@ img {
   display: none;
 }
 
+
 .active {
 	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
+	align-items: center;
+
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   background-color: #E1D6AC;
 	color: var(--fondo);
   width: 330px;
   height: 170px;
   border-radius: 15px;
-  align-items: center;
   z-index: 100px;
   padding: 15px;
-	justify-content:right;
 	position: absolute;
 	left: calc(50vw - 165px);
+}
+
+.up{
+	align-self: flex-end;
+}
+
+.params{
+	width: 100%;
+}
+
+.params div{
+	width: 100%;
+	padding: 5px;
+	display: flex;
+	justify-content:space-around;
+
+}
+.params div label {
+	width: 50%;
+}
+
+.params div select {
+	width: 50%;
 }
 
 .info{
@@ -238,6 +257,16 @@ img {
 	text-align: right;
 	margin-bottom: 10px;
 }
+
+
+button {
+	background-color: var(--fondo);
+	color: var(--crema);
+	width: 50%;
+	border: none;
+	padding: 3px;
+}
+
 /* - - - STATS - - - */
 
 .stats {
@@ -279,6 +308,15 @@ img {
     }
 } */
 
+#all {
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background-color: var(--ocre);
+	color: var(--fondo);
+	border-radius: 5px;
+	border:none;
+}
 /* - - - Help - - - */
 #return {
   height: 36px;
