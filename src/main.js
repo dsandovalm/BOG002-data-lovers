@@ -183,7 +183,6 @@ function filter() {
   } else {
     criteria.info = {difficulty: dificult};
   }
-  
   setData(filterData(data.data,criteria))
   close();
 }
@@ -214,6 +213,7 @@ function pages(dataSet, n) {
 
 function error() {
   document.getElementById('details').style.display = 'none';
+  document.getElementById('all').style.display = 'block';
   let container = document.getElementById("main");
   container.style.display = "flex";
   container.innerHTML = "No se encontraron campeones";
