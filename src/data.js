@@ -75,14 +75,15 @@ export const searchData = (dataSet, keywords) => {
 	return(filter)
 };
 
-export const sortData = (dataSet,criteria) => {
+
+export const sortData = (dataSet,criteria,rev) => {
 	//Data es un objeto. Los campeones son los atributos de este objeto. Los valores que toma el criterio pueden ser 2: numeros o strings
 
 	//Criteria es la clave con la que se ordenarán, es un string
 
 	let sorted = {};
 	let type = checkAttribute(criteria);
-	let base = dataSet;
+	let base = Object.assign({}, dataSet);
 
   function searchFirst(data,sub,key){
 		//Retorna el elemento con menor valor en criteria, cuando este es un valor numerico. 
@@ -100,13 +101,29 @@ export const sortData = (dataSet,criteria) => {
 		return element;
 	}
 
+	function reverse(data){
+		//Retorna el objeto pero en reversa.
+		let reversed = {};
+		let array = []
+		for( const champion in data ){
+			array.push(champion)
+		}
+		array.reverse();
+
+		for(let i = 0; i< array.length;i++){
+			reversed[array[i]] = data[array[i]];
+		}
+		return reversed;
+	}
+
 	let array = [];
+	let long = Object.values(dataSet).length;
 
 	switch(type){
 		case 'num':
 			//CASE 1: num. Sort númerico
 			//Contar cuantos campeones tiene el set
-			for(let i=0; i< Object.values(dataSet).length;i++){
+			for(let i=0; i < long;i++){
 				if (criteria == 'attack' || criteria == 'defense'|| criteria == 'magic' || criteria == 	'difficulty') {
 					let current = searchFirst(base,'info',criteria);
 					sorted[current.id] = current;
@@ -140,7 +157,11 @@ export const sortData = (dataSet,criteria) => {
 				sorted[championName] = dataSet[championName];
 			}
 			break;
-		}
+	}
+	if(rev){
+		sorted = reverse(sorted);
+	}
+
 	return sorted
 };
 
