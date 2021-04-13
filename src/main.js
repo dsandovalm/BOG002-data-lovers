@@ -171,14 +171,20 @@ function filter() {
 	document.getElementById('title').innerHTML = 'Campeones filtrados';
   let rol = document.getElementById('selectTag').value;
   let dificult = document.getElementById('selectDifficulty').value;
-
-  setData(filterData(data.data,
-    {
-      tags: rol,
-      info: {
-        difficulty: dificult,
-      },
-    }))
+  let criteria = {};
+  
+  if(rol===''){
+    //Noop
+  } else {
+    criteria.tags = rol;
+  }
+  if(dificult===''){
+    //Noop
+  } else {
+    criteria.info = {difficulty: dificult};
+  }
+  
+  setData(filterData(data.data,criteria))
   close();
 }
 
