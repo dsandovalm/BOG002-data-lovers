@@ -156,7 +156,6 @@ function details(championName) { //Creada en HDU 1
 function back(){
 	document.getElementById('title').innerHTML = 'Todos los campeones';
 	setData(data.data);
-	setPage(0);
 	document.getElementById('return').style.display = 'none';
 }
 
@@ -164,7 +163,6 @@ function search() {
 		document.getElementById('title').innerHTML = 'Resultados de la búsqueda';
   let champs = searchData(data.data, document.getElementById('searchInput').value);
   setData(champs);
-	setPage(0);
   close();
 }
 
@@ -180,7 +178,6 @@ function filter() {
         difficulty: dificult,
       },
     }))
-		setPage(0);
   close();
 }
 
@@ -189,7 +186,6 @@ function sort() {
 	let reverse = document.getElementById('reverse').value === 'des' ? true : false;
   let sorted = sortData( app.currentData, document.getElementById( 'selectSort' ).value, reverse );
   setData(sorted);
-	setPage(0);
   close();
 }
 
@@ -199,7 +195,6 @@ function pages(dataSet, n) {
 
   let array = [];
   let cont = 0;
-
   for (const champion in dataSet) {
     if (cont % n == 0) {
       array[Math.floor(cont / n)] = {};
@@ -247,12 +242,6 @@ function setPages(value) { //Creada en HDU 2
   show();
 }
 
-function setData(data) {
-  app.currentData = data;
-  app.currentPage = 0;
-  show();
-}
-
 function setPage(n) {
   app.currentPage = n;
 
@@ -260,6 +249,12 @@ function setPage(n) {
   document.getElementById('actual').innerHTML = n + 1;
   document.getElementById('next').innerHTML = (n == pages(app.currentData, app.elementspp).length - 1 ? '' : n + 2);
 
+  show();
+}
+
+function setData(data) {
+  app.currentData = data;
+  setPage(0);
   show();
 }
 
