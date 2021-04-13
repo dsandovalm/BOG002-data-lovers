@@ -23,44 +23,62 @@
 					<abbr id="openSearch" title="Buscar">
 						<img src="img/buscar.png" alt="">
 					</abbr>
-          
-            <div class="popup" id="searchPopUp">
-              <img src="img/cerrar.png" alt="" class="close">
-           		<input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?">
-           		<button id="searchBtn">Buscar</button>
+					
+					<div class="popup" id="searchPopUp">
+						<div class="up">
+							<img src="img/cerrar.png" alt="" class="close">
+						</div>
+						<div class="params">
+								<input id="searchInput" type="search" name="Buscar" placeholder="¿Qué estás buscando?">
+						</div>
+						<button id="searchBtn">Buscar</button>
           </div>
 				</li>
         <li>
 					<abbr id="openSort" title="Ordenar">
 						<img src="img/ordenar2.png" alt=""> 
 					</abbr>
-						<div class="popup" id="sortPopUp">
-           	<div class="up">
-              <img src="img/cerrar.png" alt="" class="close">
-            </div>
-            <label for="sorter">Ordenar por</label>
-            <select name="sorter" id="selectSort">
-            	<option value="">Seleccione un criterio</option>
-							<option value="id"> Nombre </option>
-							<option value="tags"> Rol Principal </option>
-							<option value="difficulty"> Dificultad </option>
-							<option value="attack"> Ataque </option>
-							<option value="defense"> Defensa </option>
-							<option value="magic"> Magia </option>
-            </select>                                
-            <button id="sortBtn">Ordenar</button>
+					<div class="popup" id="sortPopUp">
+						<div class="up">
+							<img src="img/cerrar.png" alt="" class="close">
+						</div>
+						<div class="params">
+							<div>
+								<label for="sorter">Ordenar por</label>
+								<select name="sorter" id="selectSort">
+									<option value="">Seleccione un criterio</option>
+									<option value="id"> Nombre </option>
+									<option value="tags"> Rol Principal </option>
+									<option value="difficulty"> Dificultad </option>
+									<option value="attack"> Ataque </option>
+									<option value="defense"> Defensa </option>
+									<option value="magic"> Magia </option>
+								</select>
+							</div>
+							<div>
+								<label for="reverse">Orden</label>
+								<select name="reverse" id="reverse">
+									<option value="asc">Ascendente</option>
+									<option value="des"> Descendente </option>
+								</select> 
+							</div>
+						</div>
+						<button id="sortBtn">Ordenar</button>
           </div>
         </li>
         <li>
 					<abbr id="openFilter" title="Filtrar">
 						<img src="img/filtrar.png" alt="">
           </abbr>
-            <div class="popup" id="filterPopUp">
-              <img src="img/cerrar.png" alt="" class="close">
-              <div>
-                <label for="Roles"></label>
+					<div class="popup" id="filterPopUp">
+						<div class="up">
+							<img src="img/cerrar.png" alt="" class="close">
+						</div>
+						<div class="params">
+							<div>
+                <label for="Roles">Rol</label>
                 <select name="Roles" id="selectTag">
-                  <option value="">Rol</option>
+                  <option value="">Cualquier rol</option>
                   <option value="Fighter">Luchador</option>
                   <option value="Tank">Tanque</option>
                   <option value="Mage">Mago</option>
@@ -69,49 +87,59 @@
                 </select>                
 							</div>
               <div>
-                <label for="Dificultad"></label>
-                <select name="Dificultad" id="selectDifficulty">
-                  <option value="">Dificultad</option>
+                <label for="dificultad">Dificultad</label>
+                <select name="dificultad" id="selectDifficulty">
+                  <option value="">Cualquier dificultad</option>
                   <option value="1"> 1 </option>
                   <option value="2"> 2 </option>
                   <option value="3"> 3 </option>
 									<option value="4"> 4 </option>
                   <option value="5"> 5 </option>
+									<option value="6"> 6 </option>
+                  <option value="7"> 7 </option>
+									<option value="8"> 8 </option>
+                  <option value="9"> 9 </option>
                   <option value="10"> 10 </option>
                 </select>
               </div>
-              <button id="filtButton">Filtrar </button>
-            </div>  
+						</div>
+            <button id="filtButton">Filtrar </button>
+          </div>  
         </li>
         <li>
           <abbr id="openView" title="Vistas">
             <img src="img/vistas.png" alt="">
           </abbr>
 					<div class="popup" id="viewPopUp">
-						<img src="img/cerrar.png" alt="" class="close">
+						<div class="up">
+							<img src="img/cerrar.png" alt="" class="close">
+						</div>
 						<button id="cuadView">Cuadricula</button>
 						<button id="cardView">Tarjetas</button>
 						</div>
         </li>
         <li>
-          <a href="help.html"><abbr title="Ayuda"> <img src="img/ayuda.png" alt=""></abbr></a>
+          <a href="help.html"><abbr title="Ayuda"> <img src="img/icon_help.png" alt=""></abbr></a>
         </li>
       </ul>
     </aside>
 		
     <div class="content">
+			
+			<div id="return">
+					<img src="img/return.png" alt="">
+    	</div>
+
       <h2 id="title">Todos los campeones</h2>
+			<button id="all">Volver a mostrar todos</button>
 
 			<section id="main">
 			</section>
 
 			<section id="details">
-        <a href="index.html" id="return">
-					<img src="img/return.png" alt="">
-				</a>
 			</section>
 
-			<section class="pages">
+			<section class="pages" id="pages">
 				<p id="first" >Primera</p>
 				<p id="prev" ></p>
 				<p id="actual" >1</p>
